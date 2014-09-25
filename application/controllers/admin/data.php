@@ -24,6 +24,7 @@ class Data extends Admin_Controller {
         }
 
         $rules = $this->data_m->rules;
+        $this->form_validation->set_error_delimiters('<p class="error">', '</p>');
         $this->form_validation->set_rules($rules);
         if($this->form_validation->run() == TRUE){
             $data = $this->data_m->array_from_post(
@@ -63,6 +64,8 @@ class Data extends Admin_Controller {
                     'hangchaoguanliang',
                     'hanglilunliang',
                     'extra',
+                    'x_axis',
+                    'y_axis',
                     ));
 
             //We can store data info

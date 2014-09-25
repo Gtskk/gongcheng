@@ -8,39 +8,39 @@ class User_M extends MY_Model {
     public $rules = array(
         'name' => array(
             'field' => 'name',
-            'label' => 'Name',
+            'label' => '姓名',
             'rules' => 'trim|required|xss_clean|max_length[12]'
         ),
         'email' => array(
             'field' => 'email',
-            'label' => 'Email',
+            'label' => '邮箱',
             'rules' => 'trim|required|valid_email|xss_clean'
         ),
         'password' => array(
             'field' => 'password',
-            'label' => 'Password',
+            'label' => '密码',
             'rules' => 'trim|required'
         )
     );
     public $rules_admin = array(
         'email' => array(
             'field' => 'email',
-            'label' => 'Email',
+            'label' => '邮箱',
             'rules' => 'trim|required|valid_email|callback__unique_email|xss_clean'
         ),
         'name' => array(
             'field' => 'name',
-            'label' => 'Name',
+            'label' => '姓名',
             'rules' => 'trim|required|xss_clean'
         ),
         'password' => array(
             'field' => 'password',
-            'label' => 'Password',
+            'label' => '密码',
             'rules' => 'trim|matches[password_confirmation]'
         ),
     	'password_confirmation' => array(
     		'field' => 'password_confirmation',
-    		'label' => 'Password Confirmation',
+    		'label' => '确认密码',
     		'rules' => 'trim|matches[password]'
     	)
     );

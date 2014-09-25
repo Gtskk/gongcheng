@@ -18,8 +18,10 @@ class Page extends Frontend_Controller {
              log_message('error', 'Could not load template '.$method.'in '.__FILE__.' on line '.__LINE__);
              show_error('Could not load template'.$method);
         }
+
+        $this->data['projectDatas'] = $this->data_m->get();
         
-        add_meta_title($this->data['page']->title);
+        // add_meta_title($this->data['page']->title);
         $this->data['subview'] = $this->data['page']->template;
         $this->load->view('_main_layout', $this->data);
     }

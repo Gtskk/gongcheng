@@ -166,7 +166,8 @@ body{
 	font-family: "宋体";
 	font-size: 12px;
 }
-
+.required{color: red;font-weight: bold;padding-left: 8px;}
+.error{color: red;}
 
 
 .placeholder {

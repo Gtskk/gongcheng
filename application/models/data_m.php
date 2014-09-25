@@ -44,11 +44,20 @@ class data_m extends MY_Model {
             'label' => '桩顶标高',
             'rules' => 'trim|required|numeric'
         ),
+        'x_axis' => array(
+            'field' => 'x_axis',
+            'label' => 'X轴坐标',
+            'rules' => 'trim|required|numeric'
+        ),
+        'y_axis' => array(
+            'field' => 'y_axis',
+            'label' => 'Y轴坐标',
+            'rules' => 'trim|required|numeric'
+        ),
     );
 
     public function get_new(){
         $data = new stdClass();
-        $data->mac_id = 0;
         $data->type = 'ZZH4';
         $data->radius = 0.0;
         $data->top_ref = 0.0;

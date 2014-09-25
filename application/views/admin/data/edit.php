@@ -5,8 +5,16 @@
 	<?php echo form_open();?>
 	<table class="table">
 		<tr>
-			<td>桩号</td>
+			<td>桩号<span class="required">*</span></td>
 			<td><?php echo form_input('mac_id', set_value('mac_id', $data->mac_id));?></td>
+		</tr>
+		<tr>
+			<td>X轴坐标<span class="required">*</span></td>
+			<td><?php echo form_input('x_axis', set_value('x_axis', $data->x_axis));?></td>
+		</tr>
+		<tr>
+			<td>Y轴坐标<span class="required">*</span></td>
+			<td><?php echo form_input('y_axis', set_value('y_axis', $data->y_axis));?></td>
 		</tr>
 		<tr>
 			<td>桩型</td>

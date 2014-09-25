@@ -33,7 +33,7 @@
 			<td><?php echo $data->kaizhuan_time;?></td>
 			<td><?php echo $data->chengzhuang_time;?></td>
 			<td><?php echo $data->hutong_heightRef;?></td>
-			<td>
+			<td class="caozuo">
 				<div class="btn-group">
 					<a href="" role="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">操作<span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
