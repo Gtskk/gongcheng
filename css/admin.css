@@ -112,6 +112,7 @@ body{
 .admin_top .top_right{
 	color: #bbb3bb;
 	margin-top: 60px;
+	width: 52%;
 }
 .top_right .logout{
 	color: #777277;

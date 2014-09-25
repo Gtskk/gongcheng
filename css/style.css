@@ -21,7 +21,8 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 .print .nav-pills>li>a:hover{background: none;}
 .searchbar{display: none;}
 .searchbar .type{
-	width: 1080px;
+	/*width: 1080px;*/
+	width: 90%;
 	background-color: #f5f6f9;
 	border-radius: 5px;
 	padding: 7px;
