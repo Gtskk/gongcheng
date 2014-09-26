@@ -17,7 +17,8 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 	font-weight: bold;
 }
 .print img{margin-right: 8px;margin-top: 1px;}
-.print .nav-pills>li>a{padding-top: 0;}
+.print .nav-pills{margin-bottom: 0;}
+.print .nav-pills>li>a{padding-top: 0;height: 30px;}
 .print .nav-pills>li>a:hover{background: none;}
 .searchbar{display: none;}
 .searchbar .type{

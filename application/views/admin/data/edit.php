@@ -5,7 +5,7 @@
 	<?php echo form_open();?>
 	<table class="table">
 		<tr>
-			<td>桩号<span class="required">*</span></td>
+			<td>机号<span class="required">*</span></td>
 			<td><?php echo form_input('mac_id', set_value('mac_id', $data->mac_id));?></td>
 		</tr>
 		<tr>
@@ -97,10 +97,6 @@
 			<td><?php echo form_input('jiami_length', set_value('jiami_length', $data->jiami_length));?></td>
 		</tr>
 		<tr>
-			<td>加劲箍规格</td>
-			<td><?php echo form_input('jiajinguguige', set_value('jiajinguguige', $data->jiajinguguige));?></td>
-		</tr>
-		<tr>
 			<td>非密箍筋规格</td>
 			<td><?php echo form_input('feimigujinguige', set_value('feimigujinguige', $data->feimigujinguige));?></td>
 		</tr>
@@ -157,7 +153,8 @@
 			<td><?php echo form_textarea('extra', set_value('extra', $data->extra), 'class="tinymce"');?></td>
 		</tr>
 		<tr>
-			<td colspan="2"><?php echo form_submit('submit', '保存', 'class="btn btn-primary"');;?></td>
+			<td><?php echo form_submit('submit', '保存', 'class="btn btn-primary btn-large"');?></td>
+			<td><?php echo anchor('admin/data', '取消', 'class="btn btn-primary btn-large"');?></td>
 		</tr>
 	</table>
 	<?php echo form_close();?>

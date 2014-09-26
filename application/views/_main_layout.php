@@ -26,27 +26,28 @@
 		</a>
 	</div>
 </div>
-<div class="content">
+<div class="main_content">
+	<div class="content">
 
+		<div class="searchbar">
+			<form action="">
+				<div class="type pull-left">
+					<input type="radio" checked="checked" name="content">成孔
+					<input type="radio" name="content">钢筋笼
+					<input type="radio" name="content">二青
+					<input type="radio" name="content">铨浇筑
+				</div>
+				<a href="#" class="btn btn-primary pull-right">数据查询</a>
+			</form>
+		</div>
 
-	<div class="searchbar">
-		<form action="">
-			<div class="type pull-left">
-				<input type="radio" checked="checked" name="content">成孔
-				<input type="radio" name="content">钢筋笼
-				<input type="radio" name="content">二青
-				<input type="radio" name="content">铨浇筑
-			</div>
-			<a href="#" class="btn btn-primary pull-right">数据查询</a>
-		</form>
+		<div class="main"><img usemap="#Map" src="images/cad.jpg" alt="地图" /></div>
+		<map name="Map" id="Map">
+			<?php foreach ($projectDatas as $val):?>
+			<area id="zhuang<?php echo $val->id;?>" alt="<?php echo $val->id;?>" href="javascript:void(0);" coords="<?php echo $val->x_axis;?>, <?php echo $val->y_axis;?>, 4" shape="circ">
+			<?php endforeach;?>
+		</map>
 	</div>
-
-	<div class="main"><img usemap="#Map" src="images/cad.jpg" alt="地图" /></div>
-	<map name="Map" id="Map">
-		<?php foreach ($projectDatas as $val):?>
-		<area id="zhuang<?php echo $val->id;?>" alt="<?php echo $val->id;?>" href="javascript:void(0);" coords="<?php echo $val->x_axis;?>, <?php echo $val->y_axis;?>, 4" shape="circ">
-		<?php endforeach;?>
-	</map>
 </div>
 <div id="foot">
 	<p>

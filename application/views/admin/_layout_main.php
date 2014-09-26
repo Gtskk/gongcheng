@@ -54,8 +54,9 @@
             </div>
         </div>
 
-
-        <?php $this->load->view($subview);?>
+        <div class="main_content">
+            <?php $this->load->view($subview);?>
+        </div>
         
         <div id="foot">
             <p>
