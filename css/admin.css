@@ -110,12 +110,12 @@ body a:hover{color: #ddd;text-decoration: none;}
 	color: #fff;
 	margin-left: 75px;
 	margin-top: 22px;
-	width: 20%;
+	width: 24%;
 }
 .admin_top .top_right{
 	color: #bbb3bb;
 	margin-top: 60px;
-	width: 52%;
+	width: 42%;
 }
 .top_right .logout{
 	color: #777277;
@@ -149,7 +149,7 @@ body a:hover{color: #ddd;text-decoration: none;}
 .action a{margin: 5px 15px;}
 .main_content{background: url(../images/content_bg.jpg);padding-top: 20px;padding-bottom: 10px;}
 .content .table{
-	padding: 0 5px;
+	/*padding: 0 5px;*/
 	background-color: #f5f6f9;
 }
 .content .table tbody>tr>td, .content .table tbody>tr>th{
@@ -158,10 +158,14 @@ body a:hover{color: #ddd;text-decoration: none;}
 	border: none;
 	vertical-align: middle;
 }
-.content .table tbody>tr>th{border-bottom: 4px solid #fff;}
-.pingjian .table tbody>tr>td{border: 1px solid #ddd;}
+.content .table tbody>tr>th{border-bottom: 4px solid #ddd;}
+.pingjian .table tbody>tr>td{border: 1px solid #ddd;border-radius: 5px;}
+.content .tableSpe{width: 100%;}
+.content .tableSpe input, .content .tableSpe select{width: 80px;}
+.content .tableSpe .remove_record{margin-top: 5px;}
+.content .table td.special{padding-top: 0;padding-bottom: 0;}
 .pingjian .pull-left{margin-left: 10%;}
-.pingjian .pull-right{margin-right: 10%;}
+.pingjian .pull-right.btn-large{margin-right: 10%;}
 #foot{
 	width: 100%;
 	height: 43px;

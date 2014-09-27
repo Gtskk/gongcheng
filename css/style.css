@@ -23,7 +23,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 .searchbar{display: none;}
 .searchbar .type{
 	/*width: 1080px;*/
-	width: 90%;
+	width: 88%;
 	background-color: #f5f6f9;
 	border-radius: 5px;
 	padding: 7px;

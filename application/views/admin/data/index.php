@@ -42,7 +42,6 @@
 					</ul>
 				</div>
 			</td>
-			<td></td>
 		</tr>
 		<?php endforeach;else:?>
 		<tr>

@@ -34,8 +34,9 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><?php echo anchor('admin/data', '数据');?></li>
-                                <li><?php echo anchor('admin/data/edit', '新建数据');?></li>
+                                <li><?php echo anchor('admin/data', '汇总表数据');?></li>
+                                <li><?php echo anchor('admin/pingjian', '平检数据');?></li>
+                                <li><?php echo anchor('admin/pangzhan', '旁站数据');?></li>
                             </ul>
                         </li>
                         <li class="dropdown<?php if($this->uri->segment(2) == 'user'):?> active<?php endif;?>">
