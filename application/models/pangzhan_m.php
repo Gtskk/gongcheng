@@ -47,15 +47,12 @@ class pangzhan_m extends MY_Model {
         $data->work_address = '';
         $data->pangzhanjianlikaishishijian = date('Y-m-d');
         $data->pangzhanjianlijieshushijian = date('Y-m-d');
-<<<<<<< HEAD
         $data->sg_zjArrive = 0;
         $data->sg_shanggangzheng = 0;
         $data->sg_machineArrive = 0;
         $data->sg_materialCheck = 0;
         $data->sg_hunningtuDoc = 0;
         $data->sg_tiaojianReq = 0;
-=======
->>>>>>> b773af61847b02393069a87bb390821633719164
         $data->jl_shuangshejiqiangdu = '';
         $data->jl_lilunshuanshouguan = 0;
         $data->jl_kongdibiaogao = 0;
@@ -66,11 +63,8 @@ class pangzhan_m extends MY_Model {
         $data->jl_shuanmianbiaogao = 0;
         $data->jl_daoguanchangdu = 0;
         $data->jl_chongyingxishu = 0;
-<<<<<<< HEAD
         $data->que_weifanqiangzhixing = 0;
         $data->que_yingxiangzhiliang = 0;
-=======
->>>>>>> b773af61847b02393069a87bb390821633719164
         $data->chuliyijiang = '';
         $data->extra = '';
         $data->shigongqiye = '';
