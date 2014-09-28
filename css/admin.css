@@ -19,10 +19,14 @@ body a:hover{color: #ddd;text-decoration: none;}
 .login .right_login{
 	left: 62%;
 	top: 15%;
-	width: 365px;
+	width: 360px;
+	border-top-left-radius: 28px;
+	border-top-right-radius: 28px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 .right_login .modal-header{
-	background-image: url(../images/login_right_top.gif);
+	background: url(../images/login_right_top.png) -28px -17px;
 	height: 103px;
 	padding-left: 0;
 	padding-right: 0;
@@ -115,7 +119,8 @@ body a:hover{color: #ddd;text-decoration: none;}
 .admin_top .top_right{
 	color: #bbb3bb;
 	margin-top: 60px;
-	width: 42%;
+	/*width: 42%;*/
+	margin-right: 60px;
 }
 .top_right .logout{
 	color: #777277;
@@ -148,6 +153,8 @@ body a:hover{color: #ddd;text-decoration: none;}
 }
 .action a{margin: 5px 15px;}
 .main_content{background: url(../images/content_bg.jpg);padding-top: 20px;padding-bottom: 10px;}
+.content .button{background: url(../images/btn_bg.png) -15px -9px;color: #fff;font-family: "宋体";}
+.content .button2{background: url(../images/btn_bg2.png) -15px -8px;color: #fff;font-family: "宋体";}
 .content .searchbar{height: 34px;}
 .content .searchbar form{margin:0;}
 .content .table{

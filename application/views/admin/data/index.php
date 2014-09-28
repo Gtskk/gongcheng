@@ -1,7 +1,7 @@
 <div class="content">
     <div class="action">
-        <?php echo anchor('admin/data/edit', '新建数据', 'class="btn btn-primary pull-left"');?>
-        <a href="#" onclick="printdiv('tableContent')" class="btn btn-primary pull-right">打印数据</a>
+        <?php echo anchor('admin/data/edit', '新建数据', 'class="btn button pull-left"');?>
+        <a href="#" onclick="printdiv('tableContent')" class="btn button2 pull-right">打印数据</a>
     </div>
     <table class="table table-striped" id="tableContent">
         <tr>
@@ -35,7 +35,7 @@
 			<td><?php echo $data->hutong_heightRef;?></td>
 			<td class="caozuo">
 				<div class="btn-group">
-					<a href="" role="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">操作<span class="caret"></span></a>
+					<a href="" role="button" class="btn button2 dropdown-toggle" data-toggle="dropdown">操作 <span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 						<li><?php echo btn_edit('admin/data/edit/'.$data->id);?></li>
 						<li><?php echo btn_delete('admin/data/delete/'.$data->id);?></li>

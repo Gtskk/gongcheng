@@ -2,8 +2,9 @@
 
 <div class="row admin_top">
 	<div class="span5 top_left">
-		<h3>钻孔灌注桩信息监理有限公司</h3>
-		<h4>江苏建科建设监理有限公司</h4>
+		<!-- <h3>钻孔灌注桩信息监理有限公司</h3>
+		<h4>江苏建科建设监理有限公司</h4> -->
+		<img src="<?php echo base_url('images/banner_txt.png');?>" alt="banner">
 	</div>
 	<div class="span7 offset4 top_right">
 		<p class="pull-right qiantai">
@@ -13,14 +14,14 @@
 </div>
 <div class="row admin_middle"></div>
 <div class="row-fluid print">
-	<div class="span5 offset4">
+	<div class="span5">
 		<ul class="nav nav-pills">
 			<li><a href="javascript:void(0)" onclick="printdiv('huizongbiao')"><img src="images/huizongbiao.png" alt="汇总表打印">汇总表打印</a></li>
 			<li><a href="javascript:void(0)" onclick="printdiv('pingjian')"><img src="images/pingtai.png" alt="平台打印">平台打印</a></li>
 			<li><a href="javascript:void(0)" onclick="printdiv('pangzhan')"><img src="images/pangzhan.png" alt="旁站打印">旁站打印</a></li>
 		</ul>
 	</div>
-	<div class="span2 offset1">
+	<div class="span2 offset5">
 		<a href="javascript:void(0)" id="search">
 			<img src="images/search.png" alt="便捷工具查询">便捷工具查询
 		</a>

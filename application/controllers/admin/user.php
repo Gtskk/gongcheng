@@ -80,7 +80,7 @@ class User extends Admin_Controller {
         // 添加验证码是否为空的验证
         $rules['capt'] = array(
             'field' => 'capt',
-            'label' => 'Captcha',
+            'label' => '验证码',
             'rules' => 'trim|required'
             );
     	$this->form_validation->set_rules($rules);

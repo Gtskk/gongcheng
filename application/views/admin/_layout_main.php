@@ -3,10 +3,11 @@
     <body>
         <div class="row admin_top">
             <div class="span5 top_left">
-                <h3>钻孔灌注桩信息监理有限公司</h3>
-                <h4>江苏建科建设监理有限公司</h4>
+                <!-- <h3>钻孔灌注桩信息监理有限公司</h3>
+                <h4>江苏建科建设监理有限公司</h4> -->
+                <img src="<?php echo base_url('images/banner_txt.png');?>" alt="banner">
             </div>
-            <div class="span7 offset4 top_right">
+            <div class="span7 offset4 top_right pull-right">
                 <p class="pull-left">
                     <img src="<?php echo base_url('images/user.png');?>" alt="用户小图标">
                     <span class="user">当前用户：<?php echo $this->session->userdata('name');?></span>

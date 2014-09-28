@@ -4,8 +4,8 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 
 /* 前台页面样式 */
 .backbtn{
-	background-image: url(../images/backbtn_bg.gif);
-	padding: 8px 43px;
+	background: url(../images/backbtn_bg.png) -13px -6px;
+	padding: 8px 42px;
 	font-size: 16px;
 	color: #e9e8e9;
 }
@@ -17,7 +17,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 	font-weight: bold;
 }
 .print img{margin-right: 8px;margin-top: 1px;}
-.print .nav-pills{margin-bottom: 0;}
+.print .nav-pills{margin-bottom: 0;margin-left: 50px;}
 .print .nav-pills>li>a{padding-top: 0;height: 30px;}
 .print .nav-pills>li>a:hover{background: none;}
 .searchbar{display: none;}
