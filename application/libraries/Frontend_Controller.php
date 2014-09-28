@@ -9,6 +9,8 @@ class Frontend_Controller extends MY_Controller {
         // Load stuff
 		$this->load->model('page_m');
 		$this->load->model('data_m');
+		$this->load->model('pingjian_m');
+		$this->load->model('pangzhan_m');
 		$this->load->model('article_m');
 		
 		// Fetch navigation

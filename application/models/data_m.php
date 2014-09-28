@@ -58,7 +58,10 @@ class data_m extends MY_Model {
 
     public function get_new(){
         $data = new stdClass();
+        $data->mac_id = 0;
         $data->type = 'ZZH4';
+        $data->x_axis = 0;
+        $data->y_axis = 0;
         $data->radius = 0.0;
         $data->top_ref = 0.0;
         $data->length = 0.0;

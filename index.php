@@ -20,7 +20,7 @@ date_default_timezone_set('Asia/Shanghai');
  *
  */
 	switch (dirname(__FILE__)) {
-		case 'D:\wamp\www\ci':
+		case 'D:\wamp\www\gongcheng':
 			define('ENVIRONMENT', 'development');
 			break;
 		

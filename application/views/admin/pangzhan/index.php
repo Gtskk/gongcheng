@@ -1,30 +1,28 @@
 <div class="content">
     <div class="action">
-        <?php echo anchor('admin/pingjian/edit', '新建数据', 'class="btn btn-primary pull-left"');?>
+        <?php echo anchor('admin/pangzhan/edit', '新建数据', 'class="btn btn-primary pull-left"');?>
         <a href="#" onclick="printdiv('tableContent')" class="btn btn-primary pull-right">打印数据</a>
     </div>
     <table class="table table-striped" id="tableContent">
         <tr>
-            <th>桩号</th>
-            <th>机号</th>
-            <th>桩型</th>
+            <th>编号</th>
+            <th>工程名称</th>
+            <th>工程地点</th>
             <th>桩径</th>
-            <th>试块</th>
             <th>操作</th>
         </tr>
         <?php if(count($datas)):foreach($datas as $data):?>
 		<tr>
-			<td><?php echo $data->id;?></td>
-			<td><?php echo $data->mac_id;?></td>
-			<td><?php echo $data->type;?></td>
-			<td><?php echo $data->radius;?></td>
-			<td><?php echo $data->extra;?></td>
+			<td><?php echo $data->num;?></td>
+			<td><?php echo $data->project_name;?></td>
+			<td><?php echo $data->work_address;?></td>
+			<td><?php echo $data->zhuangjing;?></td>
 			<td class="caozuo">
 				<div class="btn-group">
 					<a href="" role="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">操作<span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-						<li><?php echo btn_edit('admin/pingjian/edit/'.$data->id);?></li>
-						<li><?php echo btn_delete('admin/pingjian/delete/'.$data->id);?></li>
+						<li><?php echo btn_edit('admin/pangzhan/edit/'.$data->id);?></li>
+						<li><?php echo btn_delete('admin/pangzhan/delete/'.$data->id);?></li>
 					</ul>
 				</div>
 			</td>

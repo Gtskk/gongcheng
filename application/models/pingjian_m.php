@@ -63,6 +63,18 @@ class pingjian_m extends MY_Model {
 
     public function get_new(){
         $data = new stdClass();
+        $data->mac_id = 0;
+        $data->id = 0;
+        $data->type = '';
+        $data->radius = '';
+        $data->shikuai = '';
+        $data->kaikong_zhuangdingbiaogao = '';
+        $data->kaikong_zhuangdibiaogao = '';
+        $data->kaikong_hutongbiaogao = '';
+        $data->kaikong_jitaibiaogao = '';
+        $data->kaikong_zhuantouchangdu = '';
+        $data->kaikong_jianli = '';
+        $data->kaikong_kaizhuanshijian = date('Y-m-d');
         $data->chengkong_zhuganchang = 0;
         $data->chengkong_zhuanjuzongchang = 0;
         $data->chengkong_jiyuci = 0;

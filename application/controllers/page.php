@@ -20,6 +20,8 @@ class Page extends Frontend_Controller {
         }
 
         $this->data['projectDatas'] = $this->data_m->get();
+        $this->data['pingjianDatas'] = $this->pingjian_m->get();
+        $this->data['pangzhanDatas'] = $this->pangzhan_m->get();
         
         // add_meta_title($this->data['page']->title);
         $this->data['subview'] = $this->data['page']->template;

@@ -23,7 +23,7 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 .searchbar{display: none;}
 .searchbar .type{
 	/*width: 1080px;*/
-	width: 90%;
+	width: 88%;
 	background-color: #f5f6f9;
 	border-radius: 5px;
 	padding: 7px;
@@ -35,3 +35,4 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 .main{margin-bottom: 20px;}
 .mapDiv { padding: 10px; width:210px;background-color: #ddd; color:#369;line-height: 22px; /* background: url('../images/hotarrow.gif') no-repeat; */ }
 .red{color: red}
+.hide{display: none;}
