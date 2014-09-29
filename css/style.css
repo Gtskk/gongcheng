@@ -33,6 +33,6 @@ ul.nav li.dropdown:hover ul.dropdown-menu{
 .type input[type=radio]{margin-left: 40px;margin-top: -1px;width: 25px;}
 .searchbar .btn{margin-right: 30px;}
 .main{margin-bottom: 20px;}
-.mapDiv { padding: 10px; width:210px;background-color: #ddd; color:#369;line-height: 22px; /* background: url('../images/hotarrow.gif') no-repeat; */ }
+.mapDiv { padding: 10px; width:220px;background-color: #538837; color:#fff;line-height: 22px; border-radius: 2px;opacity: 0.7;/* background: url('../images/hotarrow.png') repeat-y;  */}
 .red{color: red}
 .hide{display: none;}

@@ -6,7 +6,7 @@
 		<h4>江苏建科建设监理有限公司</h4> -->
 		<img src="<?php echo base_url('images/banner_txt.png');?>" alt="banner">
 	</div>
-	<div class="span7 offset4 top_right">
+	<div class="span7 offset4 top_right pull-right">
 		<p class="pull-right qiantai">
 			<a class="backbtn" href="<?php echo base_url('admin');?>">管理员录入</a>
 		</p>
@@ -175,7 +175,7 @@
 	$(document).ready(function(){
 		$('img').mapster({
 			fillColor: 'ff0000',
-			stroke: true
+			fill: true
 		});
 		// 高亮信息点
 		$('area').mapster('highlight');
@@ -193,7 +193,7 @@
 	            preview.css({
 	                "display":"none",
 	                "position":"absolute",
-	                "width":"150px",
+	                "width":"186px",
 	                "word-break":"break-all"
 	            });
 	            return this.each(function() {
@@ -229,7 +229,6 @@
 	    $("#zhuang<?php echo $val->id;?>").TitleShow("<div class='mapDiv'>\
 	    	桩型：<?php echo $val->type;?><br />\
 	    	桩径：<?php echo $val->radius;?><br />\
-	    	桩长：<?php echo $val->length;?>\
 	    	桩顶标高：<?php echo $val->top_ref;?><br />\
 	    	桩长：<?php echo $val->length;?><br />\
 	    	全筋桩长：<?php if($val->quanjin_length>10):?><span class='red'><?php endif;?><?php echo $val->quanjin_length;?><?php if($val->quanjin_length>10):?></span><?php endif;?><br />\
