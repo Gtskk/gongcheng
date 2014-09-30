@@ -6,7 +6,7 @@ class Pangzhan extends Admin_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('pangzhan_m');
-        $this->load->model('jianliRecord_m');
+        $this->load->model('jianlirecord_m');
     }
 
     public function index(){
@@ -20,7 +20,7 @@ class Pangzhan extends Admin_Controller {
         if($id){
             $this->data['data'] = $this->pangzhan_m->get($id);
             $num = $this->data['data']->num;
-            $this->data['jianli'] = $this->jianliRecord_m->get(array('num'=>$num));
+            $this->data['jianli'] = $this->jianlirecord_m->get(array('num'=>$num));
             count($this->data['data']) || $this->data['errors'] = '未找到数据';
         }else{
             $this->data['data'] = $this->pangzhan_m->get_new();
@@ -73,7 +73,7 @@ class Pangzhan extends Admin_Controller {
 
             $jianliRecords = array();
             for($i = 1; $i <= 10; $i++){
-                $tmp = $this->jianliRecord_m->array_from_post_spec('num',
+                $tmp = $this->jianlirecord_m->array_from_post_spec('num',
                         array(
                             'id'.$i,
                             'time'.$i,
@@ -92,7 +92,7 @@ class Pangzhan extends Admin_Controller {
                     $jianliRecords[] = $tmp;
                 }
             }
-            if((!empty($jianliRecords) && $this->jianliRecord_m->saveJianli($jianliRecords, $id)) || empty($jianliRecords)){
+            if((!empty($jianliRecords) && $this->jianlirecord_m->saveJianli($jianliRecords, $id)) || empty($jianliRecords)){
                 $jianliSave = true;
             }else{
                 $jianliSave = false;
@@ -116,8 +116,8 @@ class Pangzhan extends Admin_Controller {
         if($this->input->is_ajax_request()){
             $pangzhan = $this->pangzhan_m->get($id);
             $num = $pangzhan->num;
-            $jianliRecords = $this->jianliRecord_m->get(array('num'=>$num));
-            if((count($jianliRecords) && $this->jianliRecord_m->delete(array('num'=>$num))) || !count($jianliRecords)){
+            $jianliRecords = $this->jianlirecord_m->get(array('num'=>$num));
+            if((count($jianliRecords) && $this->jianlirecord_m->delete(array('num'=>$num))) || !count($jianliRecords)){
                 $jianliDelete = true;
             }else{
                 $jianliDelete = false;

@@ -164,7 +164,7 @@ body a:hover{color: #ddd;text-decoration: none;}
 	background-color: #f5f6f9;
 }
 .content .table tbody>tr>td, .content .table tbody>tr>th{
-	padding: 5px 0px;
+	padding: 5px;
 	text-align: center;
 	border: none;
 	vertical-align: middle;

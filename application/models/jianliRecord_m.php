@@ -1,7 +1,7 @@
 <?php
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class jianliRecord_m extends MY_Model {
+class jianlirecord_m extends MY_Model {
     
     protected $_table_name = 'jianliRecords';
     protected $_primary_key = 'id';
