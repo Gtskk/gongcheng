@@ -30,11 +30,13 @@ body a:hover{color: #ddd;text-decoration: none;}
 	height: 103px;
 	padding-left: 0;
 	padding-right: 0;
+	padding-top: 8px;
 	border-radius: 3px;
 }
 .right_login .welcome{
 	background: rgba(0, 0, 0, 0.5);
 	z-index: 2;
+	height: 34px;
 	filter: progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = '#50000000',endColorstr = '#50000000')\9;
 }
 .right_login .modal-header p{
@@ -119,8 +121,8 @@ body a:hover{color: #ddd;text-decoration: none;}
 .admin_top .top_right{
 	color: #bbb3bb;
 	margin-top: 60px;
-	/*width: 42%;*/
-	margin-right: 7%;
+	width: 37%;
+	margin-right: 3%;
 }
 .top_right .logout{
 	color: #777277;

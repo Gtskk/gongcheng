@@ -45,7 +45,7 @@
 		<div class="main"><img usemap="#Map" src="images/cad.jpg" alt="地图" /></div>
 		<map name="Map" id="Map">
 			<?php foreach ($projectDatas as $val):?>
-			<area id="zhuang<?php echo $val->id;?>" alt="<?php echo $val->id;?>" href="javascript:void(0);" coords="<?php echo $val->x_axis;?>, <?php echo $val->y_axis;?>, 4" shape="circ">
+			<area id="zhuang<?php echo $val->id;?>" alt="<?php echo $val->id;?>" href="javascript:void(0);" coords="<?php echo $val->x_axis;?>, <?php echo $val->y_axis;?>, 5" shape="circ">
 			<?php endforeach;?>
 		</map>
 	</div>
