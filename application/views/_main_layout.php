@@ -183,8 +183,8 @@
 
 	    jQuery.fn.extend({
 	        TitleShow: function(strHTML) {
-	            var xOffset = 0;
-	            var yOffset = 0;
+	            var xOffset = 5;
+	            var yOffset = 5;
 	            var preview = $("#preview_container");
 	            if(preview.length<=0){
 	                $("body").append("<div id='preview_container'></div>");
@@ -198,25 +198,25 @@
 	            });
 	            return this.each(function() {
 	                var _this = $(this);
-	                _this.hover(
+	                _this.click(
 	                    function(e){
-	                        preview.html(strHTML);
-	                        preview
-	                            .css("top",(e.pageY - xOffset) + "px")
-	                            .css("left",(e.pageX + yOffset) + "px")
-	                            .css("opaticy",0)
-	                            .show()
-	                            .stop()
-	                            .animate({"opacity":0.9},300);
-	                            
-	                    },function(){
-	                        preview
-	                            .stop()
-	                            .animate({"opacity":0},300,function(){
+	                        if (preview.is(':hidden')) {
+	                        	preview.html(strHTML);
+	                        	preview
+		                            .css("top",(e.pageY - xOffset) + "px")
+		                            .css("left",(e.pageX + yOffset) + "px")
+		                            .css("opaticy",0)
+		                            .show()
+		                            .stop()
+		                            .animate({"opacity":0.9},300);
+	                        }else{
+		                        preview.animate({"opacity":0},300,function(){
 	                                $(this).hide();
 	                            });
+		                    }
+	                            
 	                    }
-	                )
+	                );
 	                _this.mousemove(function(e){
 	                    preview
 	                        .css("top",(e.pageY - xOffset) + "px")
