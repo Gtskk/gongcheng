@@ -155,22 +155,22 @@ body a:hover{color: #ddd;text-decoration: none;}
 }
 .action a{margin: 5px 15px;}
 .main_content{background: url(../images/content_bg.jpg);padding-top: 20px;padding-bottom: 10px;}
-.content .button{background: url(../images/btn_bg.png) -15px -9px;color: #fff;font-family: "宋体";}
-.content .button2{background: url(../images/btn_bg2.png) -15px -8px;color: #fff;font-family: "宋体";}
-.content .searchbar{height: 34px;}
+.content .button{background: url(../images/btn_bg.png) -15px -9px;color: #fff;font-family: "宋体";text-shadow: none;}
+.content .button2{background: url(../images/btn_bg2.png) -15px -8px;color: #fff;font-family: "宋体";text-shadow: none;}
+.content .searchbar{height: 55px;}
 .content .searchbar form{margin:0;}
 .content .table{
 	/*padding: 0 5px;*/
 	background-color: #f5f6f9;
 }
 .content .table tbody>tr>td, .content .table tbody>tr>th{
-	padding: 5px;
-	text-align: center;
+	/*padding: 5px;*/
 	border: none;
+	text-align: center;
 	vertical-align: middle;
 }
 .content .table tbody>tr>th{border-bottom: 4px solid #ddd;}
-.pingjian .table tbody>tr>td{border: 1px solid #ddd;border-radius: 5px;}
+.pingjian .table tbody>tr>td{border: 1px solid #ddd;border-radius: 5px;text-align: left;}
 .content .tableSpe{width: 100%;}
 .content .tableSpe input, .content .tableSpe select{width: 80px;}
 .content .tableSpe .remove_record{margin-top: 5px;}
