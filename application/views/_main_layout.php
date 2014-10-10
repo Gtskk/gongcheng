@@ -178,7 +178,8 @@
 			fill: true
 		});
 		// 高亮信息点
-		$('area').mapster('highlight');
+		// $('area').mapster('highlight');
+		$('area').mapster('select');
 
 
 	    jQuery.fn.extend({
