@@ -10,7 +10,7 @@
             <div class="span7 offset4 top_right pull-right">
                 <p class="pull-left">
                     <img src="<?php echo base_url('images/user.png');?>" alt="用户小图标">
-                    <span class="user">当前用户：<?php echo $this->session->userdata('name');?></span>
+                    <span class="user">当前用户：<?php echo $this->session->userdata('displayname') ? $this->session->userdata('displayname') : $this->tank_auth->get_username();?></span>
                     <span class="time">系统时间：<?php echo date('Y/m/d');?></span>
                 </p>
                 <p class="pull-right">

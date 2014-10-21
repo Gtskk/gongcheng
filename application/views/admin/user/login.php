@@ -15,10 +15,11 @@
 	<table class="table">
 		<tr>
 			<td class="input">
-				<input type="text" name="email" id="email" value="<?php set_value('email');?>" placeholder="登 录 帐 号">
+				<input type="text" name="login" id="login" value="<?php set_value('login');?>" placeholder="登 录 帐 号">
 				<input type="password" name="password" id="password" value="<?php set_value('password');?>"  placeholder="密 码">
 			</td>
 		</tr>
+		<?php if($show_captcha) : if(!$use_recaptcha) : ?>
 		<tr>
 			<td class="capt">
 				<input type="text" name="capt" id="capt" placeholder="验 证 码">
@@ -27,6 +28,18 @@
 				<a href="#" onclick="document.getElementById('verify_code').src = '<?php echo base_url('admin/user/verify_image');?>?r='+Math.random();">换一张</a>
 			</td>
 		</tr>
+		<?php else : ?>
+		<tr>
+			<td>&nbsp;</td>
+			<td>
+				<p>
+					Write the following word:<br>
+					<img src="<?php echo $captcha_html; ?>" id="captcha" /><br />
+				<a class="small" href="javascript:void(0)" onclick="document.getElementById('captcha').src='<?php echo site_url(); ?>captcha/captcha.php?'+Math.random(); document.getElementById('captcha-form').focus();" id="change-image">Not readable? Change text.</a><br/><br/><input type="text" name="captcha" id="captcha-form" autocomplete="off" /></p>
+			</td>
+			<td style="color: red;"><?php echo form_error('captcha'); ?><?php echo isset($errors['captcha']) ? $errors['captcha'] : ''; ?></td>
+		</tr>
+		<?php endif; endif; ?>
 		<tr>
 			<td class="capt"><input class="btn btn-primary btn-large btn-success" type="submit" value="登录"></td>
 		</tr>

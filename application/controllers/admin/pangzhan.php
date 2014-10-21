@@ -7,6 +7,11 @@ class Pangzhan extends Admin_Controller {
         parent::__construct();
         $this->load->model('pangzhan_m');
         $this->load->model('jianlirecord_m');
+
+        // 判断角色权限
+        if(!$this->tank_auth->permit('pangzhan')){
+            $this->tank_auth->notice('password-failed');
+        }
     }
 
     public function index(){

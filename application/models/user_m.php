@@ -4,10 +4,10 @@ if (!defined('BASEPATH')) exit('No direct script access allowed');
 class User_M extends MY_Model {
     
     protected $_table_name = 'users';
-    protected $_order_by = 'name';
+    protected $_order_by = 'username';
     public $rules = array(
-        'name' => array(
-            'field' => 'name',
+        'username' => array(
+            'field' => 'username',
             'label' => '姓名',
             'rules' => 'trim|required|xss_clean|max_length[12]'
         ),
@@ -28,8 +28,8 @@ class User_M extends MY_Model {
             'label' => '邮箱',
             'rules' => 'trim|required|valid_email|callback__unique_email|xss_clean'
         ),
-        'name' => array(
-            'field' => 'name',
+        'username' => array(
+            'field' => 'username',
             'label' => '姓名',
             'rules' => 'trim|required|xss_clean'
         ),
@@ -53,7 +53,7 @@ class User_M extends MY_Model {
             'password' => $this->hash($this->input->post('password'))
         ), TRUE);
         $user || $user = $this->get(array(
-            'name' => $this->input->post('name'),
+            'username' => $this->input->post('username'),
             'password' => $this->hash($this->input->post('password'))
         ), TRUE);
 
@@ -80,7 +80,7 @@ class User_M extends MY_Model {
 
     public function get_new(){
         $user = new stdClass();
-        $user->name = '';
+        $user->username = '';
         $user->display_name = '';
         $user->email = '';
         $user->phone = '';

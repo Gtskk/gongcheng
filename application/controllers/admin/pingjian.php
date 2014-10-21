@@ -6,6 +6,11 @@ class Pingjian extends Admin_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('pingjian_m');
+
+        /*// 判断角色权限
+        if(!$this->tank_auth->permit('pingjian')){
+            $this->tank_auth->notice('password-failed');
+        }*/
     }
 
     public function index(){
