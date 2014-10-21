@@ -42,7 +42,11 @@
 			</form>
 		</div>
 
-		<div class="main"><img usemap="#Map" src="images/cad.jpg" alt="地图" /></div>
+		<div class="main">
+			<a class="miniImg artZoom" href="images/big.jpg">
+				<img usemap="#Map" src="images/small.jpg" alt="地图" title="CAD图纸" />
+			</a>
+		</div>
 		<map name="Map" id="Map">
 			<?php foreach ($projectDatas as $val):?>
 			<area id="zhuang<?php echo $val->id;?>" alt="<?php echo $val->id;?>" href="javascript:void(0);" coords="<?php echo $val->x_axis;?>, <?php echo $val->y_axis;?>, 5" shape="circ">
@@ -169,10 +173,12 @@
 <script src="<?php echo base_url('js/jquery.min.js');?>"></script>
 <script src="<?php echo base_url('js/bootstrap.min.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.imagemapster.min.js');?>"></script>
-<script type="text/javascript" src="js/admin.js"></script>
-<script type="text/javascript" src="js/application.js"></script>
+<script type="text/javascript" src="<?php echo base_url('js/artZoom.min.js');?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/admin.js');?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/application.js');?>"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+
 		$('img').mapster({
 			fillColor: 'ff0000',
 			fill: true
@@ -223,6 +229,11 @@
 	                        .css("top",(e.pageY - xOffset) + "px")
 	                        .css("left",(e.pageX + yOffset) + "px");
 	                });
+
+	                _this.dblclick(function() {
+	                	var areaid = jQuery(this).attr('id');
+	                	window.open("<?php echo base_url('admin/data/edit');?>"+areaid.substring(6), '_blank');
+	                })
 	            });
 	        }
 	    });

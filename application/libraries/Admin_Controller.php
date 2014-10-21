@@ -11,7 +11,7 @@ class Admin_Controller extends MY_Controller {
         $this->load->library('session');
         $this->load->model('user_m');
 
-        $exception_uris = array('admin/user/login', 'admin/user/logout', 'admin/user/verify_image', 'admin');
+        $exception_uris = array('admin/user/login', 'admin/user/logout', 'admin/user/verify_image');
         if(in_array(uri_string(), $exception_uris) == FALSE){
             // 判断是否登录
         	if($this->tank_auth->is_logged_in() == FALSE){
@@ -19,7 +19,7 @@ class Admin_Controller extends MY_Controller {
         	}
 
             // 判断是否有权限访问
-            if(!$this->tank_auth->permit(strtolower($this->uri->segment(2)))){
+            if(uri_string() != 'admin' && !$this->tank_auth->permit(strtolower($this->uri->segment(2)))){
                 // redirect('landing/not-authorized');
                 $this->tank_auth->no_access('not-authorized');
             }
