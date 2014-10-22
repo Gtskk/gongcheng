@@ -170,12 +170,15 @@
 	<?php endif;?>
 </table>
 
-<script src="<?php echo base_url('js/jquery.min.js');?>"></script>
+<script src="<?php echo base_url('js/jquery-1.5.2.min.js');?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/artZoom.min.js');?>"></script>
+<script src="<?php echo base_url('js/jquery-1.11.1.min.js');?>"></script>
+<script src="<?php echo base_url('js/jquery-migrate-1.2.1.min.js');?>"></script>
 <script src="<?php echo base_url('js/bootstrap.min.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/jquery.imagemapster.min.js');?>"></script>
-<script type="text/javascript" src="<?php echo base_url('js/artZoom.min.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/admin.js');?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/application.js');?>"></script>
+
 <script type="text/javascript">
 	$(document).ready(function(){
 
