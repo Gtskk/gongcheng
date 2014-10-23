@@ -38,7 +38,7 @@
 					<input type="radio" name="content" value="erqing">二次清孔
 					<input type="radio" name="content" value="shuanjiaozhu">砼浇筑
 				</div>
-				<a href="#" class="btn btn-primary pull-right">数据查询</a>
+				<a href="#" class="btn button2 pull-right">数据查询</a>
 			</form>
 		</div>
 
