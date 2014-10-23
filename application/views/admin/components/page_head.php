@@ -11,7 +11,7 @@
 	   	<link href="<?php echo base_url('css/datepicker.css');?>" rel="stylesheet" media="screen">
 		<?php endif;?>
 
-        <script src="<?php echo base_url('js/jquery.min.js');?>"></script>
+        <script src="<?php echo base_url('js/jquery-1.11.1.min.js');?>"></script>
 	    <script src="<?php echo base_url('js/bootstrap.min.js');?>"></script>
 	    <script src="<?php echo base_url('js/admin.js');?>"></script>
 	    <script src="<?php echo base_url('js/bootstrap-datepicker.js');?>"></script>

@@ -50,25 +50,6 @@ class User extends Admin_Controller {
     }
 
     public function login() {
-        // 加载验证码辅助函数
-        /*$this->load->helper('captcha');
-        $captcha = create_captcha(array(
-            'word' => rand(1000, 10000),
-            'img_path' => './captcha/',
-            'img_url' => base_url().'captcha/',
-            'img_width' => '48',
-            'img_height' => '20',
-            'expiration' => 60
-            ));
-        $this->data['captcha'] = $captcha;
-        $dat = array(
-            'captcha_time' => $captcha['time'],
-            'ip_address' => $this->input->ip_address(),
-            'word' => $captcha['word']
-            );
-
-        $query = $this->db->insert_string('captcha', $dat);
-        $this->db->query($query);*/
         if ($this->tank_auth->is_logged_in()) {                                 // logged in
             redirect($this->config->item('login-success', 'tank_auth'));
 
