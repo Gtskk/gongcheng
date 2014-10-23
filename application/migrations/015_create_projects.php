@@ -19,6 +19,9 @@ class Migration_Create_projects extends CI_Migration {
 			'created' => array(
 				'type' => 'DATETIME',
 			),
+			'created' => array(
+				'type' => 'DATETIME',
+			),
 		));
 
 		$this->dbforge->add_key('id', TRUE);

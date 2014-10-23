@@ -5,17 +5,18 @@ class Dashboard extends Admin_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('data_m');
+        $this->load->model('project_m');
     }
 
     public function index() {
-        $this->data['datas'] = $this->data_m->get();
-    	$this->data['subview'] = 'admin/data/index.php';
+
+        $this->data['projects'] = $this->project_m->get();
+    	$this->data['subview'] = 'admin/project/index';
 
         $this->load->view('admin/_layout_main', $this->data);
     }
 
-    public function modal() {
+    /*public function modal() {
         $this->load->view('admin/_layout_modal', $this->data);
-    }
+    }*/
 }

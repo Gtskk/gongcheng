@@ -8,8 +8,12 @@ class Data extends Admin_Controller {
         $this->load->model('data_m');
     }
 
-    public function index(){
+    public function index($proId = NULL){
         $this->data['datas'] = $this->data_m->get();
+        if($proId != NULL){
+            $this->data['datas'] = $this->data_m->get(array('proId'=>$proId));
+        }
+
         $this->data['subview'] = 'admin/data/index';
 
         $this->load->view('admin/_layout_main', $this->data);
