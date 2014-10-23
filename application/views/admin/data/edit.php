@@ -50,11 +50,25 @@
 		</tr>
 		<tr>
 			<td>开钻时间</td>
-			<td><?php echo form_input('kaizhuan_time', set_value('kaizhuan_time', $data->kaizhuan_time), 'class="datepicker"');?></td>
+			<td>
+				<div class="datepicker input-append">
+					<?php echo form_input('kaizhuan_time', set_value('kaizhuan_time', $data->kaizhuan_time), 'data-format="yyyy/MM/dd hh:mm:ss"');?>
+					<span class="add-on">
+				      	<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+				    </span>
+				</div>
+			</td>
 		</tr>
 		<tr>
 			<td>成桩时间</td>
-			<td><?php echo form_input('chengzhuang_time', set_value('chengzhuang_time', $data->chengzhuang_time), 'class="datepicker"');?></td>
+			<td>
+				<div class="datepicker input-append">
+					<?php echo form_input('chengzhuang_time', set_value('chengzhuang_time', $data->chengzhuang_time), 'data-format="yyyy/MM/dd hh:mm:ss"');?>
+					<span class="add-on">
+				      	<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+				    </span>
+				</div>
+			</td>
 		</tr>
 		<tr>
 			<td>护筒标高</td>
@@ -162,6 +176,8 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('.datepicker').datepicker({ format: 'yyyy-mm-dd'});
-	})
+		$('.datepicker').datetimepicker({
+			language: 'zh-CN'
+		});
+	});
 </script>

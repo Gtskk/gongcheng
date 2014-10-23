@@ -12,7 +12,14 @@
 		</tr>
 		<tr>
 			<td>日期</td>
-			<td><?php echo form_input('riqi', set_value('riqi', $data->riqi), 'class="datepicker"');?></td>
+			<td>
+				<div class="datepicker input-append">
+					<?php echo form_input('riqi', set_value('riqi', $data->riqi), 'data-format="yyyy/MM/dd hh:mm:ss"');?>
+					<span class="add-on">
+				      	<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+				    </span>
+				</div>
+			</td>
 			<td>气候</td>
 			<td><?php echo form_input('qihou', set_value('qihou', $data->qihou));?></td>
 			<td>工程地点</td>
@@ -27,9 +34,23 @@
 		</tr>
 		<tr>
 			<td colspan="2">旁站监理开始时间</td>
-			<td><?php echo form_input('pangzhanjianlikaishishijian', set_value('pangzhanjianlikaishishijian', $data->pangzhanjianlikaishishijian), 'class="datepicker"');?></td>
+			<td>
+				<div class="datepicker input-append">
+					<?php echo form_input('pangzhanjianlikaishishijian', set_value('pangzhanjianlikaishishijian', $data->pangzhanjianlikaishishijian), 'data-format="yyyy/MM/dd hh:mm:ss"');?>
+					<span class="add-on">
+				      	<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+				    </span>
+				</div>
+			</td>
 			<td colspan="2">旁站监理结束时间</td>
-			<td><?php echo form_input('pangzhanjianlijieshushijian', set_value('pangzhanjianlijieshushijian', $data->pangzhanjianlijieshushijian), 'class="datepicker"');?></td>
+			<td>
+				<div class="datepicker input-append">
+					<?php echo form_input('pangzhanjianlijieshushijian', set_value('pangzhanjianlijieshushijian', $data->pangzhanjianlijieshushijian), 'data-format="yyyy/MM/dd hh:mm:ss"');?>
+					<span class="add-on">
+				      	<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+				    </span>
+				</div>
+			</td>
 		</tr>
 		<tr><td colspan="6">施工情况</td></tr>
 		<tr>
@@ -103,7 +124,14 @@
 					<?php if(isset($jianli) && count($jianli)):$n = 1;foreach($jianli as $jl):?>
 					<tr>
 						<?php echo form_hidden('id'.$n, $jl->id);?>
-						<td><?php echo form_input('time'.$n, set_value('time'.$n, $jl->time), 'class="datepicker"');?></td>
+						<td>
+							<div class="datepicker input-append">
+								<?php echo form_input('time'.$n, set_value('time'.$n, $jl->time), 'data-format="yyyy/MM/dd hh:mm:ss"');?>
+								<span class="add-on">
+							      	<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+							    </span>
+							</div>
+						</td>
 						<td><?php echo form_input('huningtuliang'.$n, set_value('huningtuliang', $jl->huningtuliang));?></td>
 						<td><?php echo form_input('tanluodu'.$n, set_value('tanluodu', $jl->tanluodu));?></td>
 						<td><?php echo form_dropdown('guanzhuGood'.$n, array('结束', '是'), set_value('guanzhuGood', $jl->guanzhuGood));?></td>
@@ -161,9 +189,23 @@
 		</tr>
 		<tr>
 			<td colspan="2">质检员（签字）日期</td>
-			<td><?php echo form_input('zhijianyuanqianziriqi', set_value('zhijianyuanqianziriqi', $data->zhijianyuanqianziriqi), 'class="datepicker"');?></td>
+			<td>
+				<div class="datepicker1 input-append">
+					<?php echo form_input('zhijianyuanqianziriqi', set_value('zhijianyuanqianziriqi', $data->zhijianyuanqianziriqi), 'data-format="yyyy/MM/dd"');?>
+					<span class="add-on">
+				      	<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+				    </span>
+				</div>
+			</td>
 			<td colspan="2">旁站监理（签字）日期</td>
-			<td><?php echo form_input('jianliqianziriqi', set_value('jianliqianziriqi', $data->jianliqianziriqi), 'class="datepicker"');?></td>
+			<td>
+				<div class="datepicker1 input-append">
+					<?php echo form_input('jianliqianziriqi', set_value('jianliqianziriqi', $data->jianliqianziriqi), 'data-format="yyyy/MM/dd"');?>
+					<span class="add-on">
+				      	<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+				    </span>
+				</div>
+			</td>
 		</tr>
 		<tr>
 			<td colspan="6">
@@ -177,6 +219,12 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('.datepicker').datepicker({ format: 'yyyy-mm-dd'});
-	})
+		$('.datepicker').datetimepicker({
+			language: 'zh-CN'
+		});
+		$('.datepicker1').datetimepicker({
+			language: 'zh-CN',
+			pickTime: false
+		});
+	});
 </script>

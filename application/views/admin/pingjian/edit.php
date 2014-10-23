@@ -43,7 +43,14 @@
 		</tr>
 		<tr>
 			<td>开钻时间</td>
-			<td><?php echo form_input('kaikong_kaizhuanshijian', set_value('kaikong_kaizhuanshijian', $data->kaikong_kaizhuanshijian), 'class="datepicker"');?></td>
+			<td>
+				<div class="datepicker input-append">
+					<?php echo form_input('kaikong_kaizhuanshijian', set_value('kaikong_kaizhuanshijian', $data->kaikong_kaizhuanshijian), 'data-format="yyyy/MM/dd hh:mm:ss"');?>
+					<span class="add-on">
+				      	<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+				    </span>
+				</div>
+			</td>
 			<td>监理</td>
 			<td><?php echo form_input('kaikong_jianli', set_value('kaikong_jianli', $data->kaikong_jianli));?></td>
 		</tr>
@@ -159,7 +166,14 @@
 		</tr>
 		<tr>
 			<td>灌注时间</td>
-			<td><?php echo form_input('shuanguanzhu_guanzhushijian', set_value('shuanguanzhu_guanzhushijian', $data->shuanguanzhu_guanzhushijian), 'class="datepicker"');?></td>
+			<td>
+				<div class="datepicker input-append">
+					<?php echo form_input('shuanguanzhu_guanzhushijian', set_value('shuanguanzhu_guanzhushijian', $data->shuanguanzhu_guanzhushijian), 'data-format="yyyy/MM/dd hh:mm:ss"');?>
+					<span class="add-on">
+				      	<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+				    </span>
+				</div>
+			</td>
 			<td>监理</td>
 			<td><?php echo form_input('shuanguanzhu_jianli', set_value('shuanguanzhu_jianli', $data->shuanguanzhu_jianli));?></td>
 		</tr>
@@ -174,7 +188,9 @@
 </div>
 
 <script type="text/javascript">
-	$(document).ready(function(){
-		$('.datepicker').datepicker({ format: 'yyyy-mm-dd'});
-	})
+	$(function() {
+	    $('.datepicker').datetimepicker({
+			language: 'zh-CN'
+		});
+	 });
 </script>

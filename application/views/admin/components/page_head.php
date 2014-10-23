@@ -7,14 +7,13 @@
         <!-- Bootstrap -->
         <link href="<?php echo base_url('css/bootstrap.min.css');?>" rel="stylesheet" media="screen">
 	   	<link href="<?php echo base_url('css/admin.css');?>" rel="stylesheet" media="screen">
-	   	<?php if($this->uri->segment(2) == 'article'):?>
-	   	<link href="<?php echo base_url('css/datepicker.css');?>" rel="stylesheet" media="screen">
-		<?php endif;?>
+	   	<link href="<?php echo base_url('css/bootstrap-datetimepicker.min.css');?>" rel="stylesheet"  media="screen">
 
         <script src="<?php echo base_url('js/jquery-1.11.1.min.js');?>"></script>
 	    <script src="<?php echo base_url('js/bootstrap.min.js');?>"></script>
 	    <script src="<?php echo base_url('js/admin.js');?>"></script>
-	    <script src="<?php echo base_url('js/bootstrap-datepicker.js');?>"></script>
+	    <script src="<?php echo base_url('js/bootstrap-datetimepicker.min.js');?>"></script>
+	    <script src="<?php echo base_url('js/bootstrap-datetimepicker.zh-CN.js');?>"></script>
 	   	<?php if(isset($sortable) && $sortable):?>
 	    <script src="<?php echo base_url('js/jquery-ui-1.9.1.custom.min.js');?>"></script>
         <script src="<?php echo base_url('js/jquery.mjs.nestedSortable.js');?>"></script>
