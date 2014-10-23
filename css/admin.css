@@ -155,6 +155,7 @@ body a:hover{color: #ddd;text-decoration: none;}
 }
 .action a{margin: 5px 15px;}
 .main_content{background: url(../images/content_bg.jpg);padding-top: 20px;padding-bottom: 10px;}
+.main_content input{width: auto;}
 .content .button{background: url(../images/btn_bg.png) -15px -9px;color: #fff;font-family: "宋体";text-shadow: none;}
 .content .button2{background: url(../images/btn_bg2.png) -15px -8px;color: #fff;font-family: "宋体";text-shadow: none;}
 .content .searchbar{height: 55px;}
