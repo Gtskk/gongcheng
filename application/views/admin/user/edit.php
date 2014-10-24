@@ -1,12 +1,12 @@
 <div class="content">
-	<h3><?php echo !empty($user->name) ? '编辑用户 '.$user->name : '创建新用户';?></h3>
+	<h3><?php echo !empty($user->username) ? '编辑用户 '.$user->username : '创建新用户';?></h3>
 	<?php echo validation_errors();?>
 	<?php echo $this->session->flashdata('saveError');?>
 	<?php echo form_open();?>
 	<table class="table">
 		<tr>
 			<td>用户名</td>
-			<td><?php echo form_input('name', set_value('name', $user->name));?></td>
+			<td><?php echo form_input('username', set_value('username', $user->username));?></td>
 		</tr>
 		<tr>
 			<td>显示名</td>
@@ -29,7 +29,8 @@
 			<td><?php echo form_password('password_confirmation');?></td>
 		</tr>
 		<tr>
-			<td colspan='2'><?php echo form_submit('submit', '提交', 'class="btn btn-primary"');;?></td>
+			<td><?php echo form_submit('submit', '提交', 'class="btn btn-primary"');;?></td>
+			<td><?php echo anchor('admin/user', '取消', 'class="btn btn-primary"');?></td>
 		</tr>
 	</table>
 	<?php echo form_close();?>

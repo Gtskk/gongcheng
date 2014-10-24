@@ -46,8 +46,9 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><?php echo anchor('admin/user', '用户');?></li>
-                                <li><?php echo anchor('admin/user/edit', '新建用户');?></li>
+                                <li><?php echo anchor('admin/user', '用户管理');?></li>
+                                <li><?php echo anchor('admin/permission', '权限管理');?></li>
+                                <li><?php echo anchor('admin/role', '角色管理');?></li>
                             </ul>
                         </li>
                         <li><?php echo anchor('admin/user/edit/'.$this->session->userdata('id'), '设置');?></li>

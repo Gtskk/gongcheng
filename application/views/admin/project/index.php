@@ -1,8 +1,8 @@
 <div class="content">
-    <div class="action">
+    <!-- <div class="action">
         <?php echo anchor('admin/data/edit', '新建数据', 'class="btn button pull-left"');?>
         <a href="#" onclick="printdiv('tableContent')" class="btn button2 pull-right">打印数据</a>
-    </div>
+    </div> -->
     <div class="row-fluid">
     	<ul class="thumbnails">
     		<?php if(count($projects)):foreach($projects as $project):?>

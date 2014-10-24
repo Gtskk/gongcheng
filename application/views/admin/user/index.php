@@ -1,6 +1,6 @@
 <div class="content">
 	<div class="action">
-        <?php echo anchor('admin/user/edit', '新建用户', 'class="btn btn-primary pull-left"');?>
+        <?php echo anchor('admin/user/edit', '新建用户', 'class="btn button pull-left"');?>
     </div>
 	<table class="table table-striped">
 		<tr>
@@ -8,15 +8,24 @@
 			<th>显示名</th>
 			<th>邮箱</th>
 			<th>电话</th>
+			<th>权限</th>
 			<th>编辑</th>
 			<th>删除</th>
 		</tr>
 		<?php if(count($users)):foreach($users as $user):?>
+		<?php $permissions = $this->tank_auth->get_permissions($user->id);?>
 		<tr>
-			<td><?php echo $user->name;?></td>
+			<td><?php echo $user->username;?></td>
 			<td><?php echo empty($user->display_name) ? '无' : $user->display_name;?></td>
 			<td><?php echo $user->email;?></td>
 			<td><?php echo empty($user->phone) ? '无' : $user->phone;?></td>
+			<td>
+				<?php if(count($permissions)):foreach($permissions as $perm):?>
+				<span class="label label-info"><?php echo $perm;?></span>
+				<?php endforeach;else:?>
+				无
+				<?php endif;?>
+			</td>
 			<td><?php echo btn_edit('admin/user/edit/'.$user->id);?></td>
 			<td><?php echo btn_delete('admin/user/delete/'.$user->id);?></td>
 		</tr>

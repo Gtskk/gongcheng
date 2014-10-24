@@ -1,21 +1,30 @@
 <?php
 if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class User extends Admin_Controller {
+class Role extends Admin_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model('role_m');
         $this->load->model('permission_m');
     }
 
     public function index(){
-        $this->data['users'] = $this->user_m->get();
-        $this->data['subview'] = 'admin/user/index';
+        $this->data['roles'] = $this->role_m->get();
+        $this->data['subview'] = 'admin/role/index';
 
         $this->load->view('admin/_layout_main', $this->data);
     }
 
     public function edit($id = NULL){
+        $permissions = $this->permission_m->get();
+        $arr = array();
+        foreach ($permissions as $perm) {
+            $arr[$perm->permission] = ucfirst($perm->permission);
+        }
+        $this->data['permissions'] = $arr;
+        $this->data['user_permissions'] = $this->tank_auth->get_permissions($id);
+
         if($id){
             $this->data['user'] = $this->user_m->get($id);
             count($this->data['user']) || $this->data['errors'] = 'User can not be found.';
@@ -46,7 +55,7 @@ class User extends Admin_Controller {
             }
         }
 
-        $this->data['subview'] = 'admin/user/edit';
+        $this->data['subview'] = 'admin/role/edit';
         $this->load->view('admin/_layout_main', $this->data);
     }
 
