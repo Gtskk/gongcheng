@@ -5,11 +5,15 @@ class User extends Admin_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('permission_m');
+        $this->load->model('role_m');
     }
 
     public function index(){
         $this->data['users'] = $this->user_m->get();
+        foreach ($this->data['users'] as &$val) {
+            $val->roles = $this->tank_auth->get_roles($val->id);
+            $val->profile = $this->tank_auth->get_user_profile($val->id);
+        }
         $this->data['subview'] = 'admin/user/index';
 
         $this->load->view('admin/_layout_main', $this->data);
@@ -18,29 +22,46 @@ class User extends Admin_Controller {
     public function edit($id = NULL){
         if($id){
             $this->data['user'] = $this->user_m->get($id);
-            count($this->data['user']) || $this->data['errors'] = 'User can not be found.';
+            count($this->data['user']) || $this->data['errors'] = '用户未找到';
+            $this->data['profile'] = $this->tank_auth->get_user_profile($id);
         }else{
             $this->data['user'] = $this->user_m->get_new();
+            $this->data['profile'] = array('phone'=>'', 'display_name'=>'');
         }
 
+        $roles = $this->role_m->get();
+        $arr = array();
+        foreach ($roles as $val) {
+            $arr[$val->role] = $val->full;
+        }
+        $this->data['roles'] = $arr;
+        $user_roles = $this->tank_auth->get_roles($id);
+        $user_arr = array();
+        foreach ($user_roles as $value) {
+            $user_arr[] = $value['role'];
+        }
+        $this->data['user_roles'] = $user_arr;
 
         $rules = $this->user_m->rules_admin;
         $id || $rules['password']['rules'] .= '|required';
         $this->form_validation->set_rules($rules);
         if($this->form_validation->run() == TRUE){
-            $this->data = $this->user_m->array_from_post(array('name', 'display_name', 'email', 'phone', 'password'));
+            $inputs = $this->user_m->array_from_post(array('username', 'email', 'password'));
+            $metas = $this->user_m->array_from_post(array('display_name', 'phone'));
 
-            if($id && !$this->data['password']){
-                unset($this->data['password']);
-            }else{
-                $this->data['password'] = $this->user_m->hash($this->data['password']);
-            }
-
-            //We can store user info
-            if($this->user_m->save($this->data, $id)){
+            // 用户角色的处理
+            $user_ros = $this->input->post('user_roles');
+            
+            if($id){// 编辑用户
+                $this->tank_auth->update_user($inputs['username'], $inputs['email'], $inputs['password'], serialize($metas), $id);
+                empty($this->data['user_roles']) || $this->tank_auth->change_role($id, $this->data['user_roles'][0], $user_ros);
+                redirect('admin/user');
+            }else if ($id == NULL){// 新建用户
+                $user = $this->tank_auth->create_user($inputs['username'], $inputs['email'], $inputs['password'], false, serialize($metas));
+                $this->tank_auth->add_role($user['user_id'], $user_ros);
                 redirect('admin/user');
             }else{
-                $this->session->set_flashdata('saveError', 'Save failed.');
+                $this->session->set_flashdata('saveError', '保存失败');
                 $page = $id == NULL ? 'admin/user/edit' : 'admin/user/edit/'.$id;
                 redirect($page, 'refresh');
             }
@@ -190,12 +211,12 @@ class User extends Admin_Controller {
 
     public function _unique_email($str){
         $id = $this->uri->segment(4);
-        $this->db->where('email', $this->input->post('email'));
+        $this->db->where('email', $str);
         !$id || $this->db->where('id != ', $id);
         $user = $this->user_m->get();
 
         if(count($user)){
-            $this->form_validation->set_message('_unique_email', '%s should be unique');
+            $this->form_validation->set_message('_unique_email', '%s已存在');
             return FALSE;
         }
         return TRUE;
@@ -203,7 +224,7 @@ class User extends Admin_Controller {
 
     public function delete($id){
         if($this->input->is_ajax_request()){
-            if($this->user_m->delete($id)){
+            if($this->tank_auth->delete_user_for_admin($id)){
                 $status = 'ok';
             }else{
                 $status = 'error';

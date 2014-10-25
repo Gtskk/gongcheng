@@ -11,6 +11,9 @@ class Role extends Admin_Controller {
 
     public function index(){
         $this->data['roles'] = $this->role_m->get();
+        foreach ($this->data['roles'] as &$val) {
+            $val->permissions = $this->tank_auth->get_permissions_by_role($val->role_id);
+        }
         $this->data['subview'] = 'admin/role/index';
 
         $this->load->view('admin/_layout_main', $this->data);
@@ -23,34 +26,31 @@ class Role extends Admin_Controller {
             $arr[$perm->permission] = ucfirst($perm->permission);
         }
         $this->data['permissions'] = $arr;
-        $this->data['user_permissions'] = $this->tank_auth->get_permissions($id);
+        $this->data['role_permissions'] = $this->tank_auth->get_permissions_by_role($id);
 
         if($id){
-            $this->data['user'] = $this->user_m->get($id);
-            count($this->data['user']) || $this->data['errors'] = 'User can not be found.';
+            $this->data['role'] = $this->role_m->get($id);
+            count($this->data['role']) || $this->data['errors'] = '角色未找到.';
         }else{
-            $this->data['user'] = $this->user_m->get_new();
+            $this->data['role'] = $this->role_m->get_new();
         }
 
 
-        $rules = $this->user_m->rules_admin;
-        $id || $rules['password']['rules'] .= '|required';
+        $rules = $this->role_m->rules;
         $this->form_validation->set_rules($rules);
         if($this->form_validation->run() == TRUE){
-            $this->data = $this->user_m->array_from_post(array('name', 'display_name', 'email', 'phone', 'password'));
-
-            if($id && !$this->data['password']){
-                unset($this->data['password']);
-            }else{
-                $this->data['password'] = $this->user_m->hash($this->data['password']);
-            }
+            $inputs = $this->role_m->array_from_post(array('role', 'full', 'default'));
 
             //We can store user info
-            if($this->user_m->save($this->data, $id)){
-                redirect('admin/user');
+            // 角色权限的处理
+            $role_perms = $this->input->post('role_perms');
+            // 首先去除角色原有的权限
+            empty($this->data['role_permissions']) || $this->tank_auth->remove_permission($this->data['role_permissions'], $inputs['role']);
+            if($this->role_m->save($inputs, $id) && $this->tank_auth->add_permission($role_perms, $inputs['role'])){
+                redirect('admin/role');
             }else{
                 $this->session->set_flashdata('saveError', 'Save failed.');
-                $page = $id == NULL ? 'admin/user/edit' : 'admin/user/edit/'.$id;
+                $page = $id == NULL ? 'admin/role/edit' : 'admin/role/edit/'.$id;
                 redirect($page, 'refresh');
             }
         }
@@ -197,14 +197,10 @@ class Role extends Admin_Controller {
         redirect('admin/user/login');*/
     }
 
-    public function _unique_email($str){
+    public function _unique_role($str){
         $id = $this->uri->segment(4);
-        $this->db->where('email', $this->input->post('email'));
-        !$id || $this->db->where('id != ', $id);
-        $user = $this->user_m->get();
-
-        if(count($user)){
-            $this->form_validation->set_message('_unique_email', '%s should be unique');
+        if(!$id && $this->tank_auth->role_exists($str)){
+            $this->form_validation->set_message('_unique_email', '%s已存在');
             return FALSE;
         }
         return TRUE;
@@ -223,13 +219,5 @@ class Role extends Admin_Controller {
         }else{
             die('不允许直接访问');
         }
-    }
-
-    function verify_image() { 
-        $conf['name'] = 'verify_code'; //作为配置参数  
-        $this->load->library('captcha_code', $conf);  
-        $this->captcha_code->show();  
-        $yzm_session = $this->session->userdata('verify_code');  
-        echo $yzm_session;  
     }
 }

@@ -12,13 +12,14 @@
 			<th>删除</th>
 		</tr>
 		<?php if(count($roles)):foreach($roles as $role):?>
+		
 		<tr>
 			<td><?php echo $role->role;?></td>
 			<td><?php echo empty($role->full) ? '无' : $role->full;?></td>
 			<td><?php echo $role->default ? '是' : '否';?></td>
 			<td>
-				<?php if(count($permissions)):foreach($permissions as $perm):?>
-				<span class="lable label-info"><?php echo $perm;?></span>
+				<?php if(count($role->permissions)):foreach($role->permissions as $perm):?>
+				<span class="label label-info"><?php echo $perm;?></span>
 				<?php endforeach;else:?>
 				无
 				<?php endif;?>

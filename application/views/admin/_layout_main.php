@@ -40,6 +40,7 @@
                                 <li><?php echo anchor('admin/pangzhan', '旁站数据');?></li>
                             </ul>
                         </li>
+                        <?php if($this->tank_auth->has_role($this->tank_auth->get_user_id(), 'admin')):?>
                         <li class="dropdown<?php if($this->uri->segment(2) == 'user'):?> active<?php endif;?>">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                 用户
@@ -51,7 +52,8 @@
                                 <li><?php echo anchor('admin/role', '角色管理');?></li>
                             </ul>
                         </li>
-                        <li><?php echo anchor('admin/user/edit/'.$this->session->userdata('id'), '设置');?></li>
+                        <li><?php echo anchor('admin/user/edit/'.$this->tank_auth->get_user_id(), '设置');?></li>
+                        <?php endif;?>
                     </ul>
                 </div>
             </div>

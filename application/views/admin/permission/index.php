@@ -29,7 +29,7 @@
 <script type="text/javascript">
 	function del(url, obj){
 		event.preventDefault();
-		if(confirm('Delete? Yes or no.')){
+		if(confirm('确认删除？')){
 			$.post(url, function(data){
 				if(data.status == 'ok'){
 					alert('删除成功');

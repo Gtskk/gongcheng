@@ -8,20 +8,20 @@
 			<th>显示名</th>
 			<th>邮箱</th>
 			<th>电话</th>
-			<th>权限</th>
+			<th>角色</th>
 			<th>编辑</th>
 			<th>删除</th>
 		</tr>
 		<?php if(count($users)):foreach($users as $user):?>
-		<?php $permissions = $this->tank_auth->get_permissions($user->id);?>
+		<?php $profile = $user->profile;?>
 		<tr>
 			<td><?php echo $user->username;?></td>
-			<td><?php echo empty($user->display_name) ? '无' : $user->display_name;?></td>
+			<td><?php echo empty($profile['display_name']) ? '无' : $profile['display_name'];?></td>
 			<td><?php echo $user->email;?></td>
-			<td><?php echo empty($user->phone) ? '无' : $user->phone;?></td>
+			<td><?php echo empty($profile['phone']) ? '无' : $profile['phone'];?></td>
 			<td>
-				<?php if(count($permissions)):foreach($permissions as $perm):?>
-				<span class="label label-info"><?php echo $perm;?></span>
+				<?php if(count($user->roles)):foreach($user->roles as $role):?>
+				<span class="label label-info"><?php echo $role['full'];?></span>
 				<?php endforeach;else:?>
 				无
 				<?php endif;?>

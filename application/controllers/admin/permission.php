@@ -44,8 +44,9 @@ class Permission extends Admin_Controller {
     }
 
     public function delete($id){
+        $id = intval($id);
         if($this->input->is_ajax_request()){
-            if($this->permission_m->delete($id)){
+            if($this->tank_auth->clear_permission($id)){
                 $status = 'ok';
             }else{
                 $status = 'error';
@@ -56,13 +57,5 @@ class Permission extends Admin_Controller {
         }else{
             die('不允许直接访问');
         }
-    }
-
-    function verify_image() { 
-        $conf['name'] = 'verify_code'; //作为配置参数  
-        $this->load->library('captcha_code', $conf);  
-        $this->captcha_code->show();  
-        $yzm_session = $this->session->userdata('verify_code');  
-        echo $yzm_session;  
     }
 }

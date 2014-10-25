@@ -17,6 +17,10 @@
 			<td><?php echo form_dropdown('default', array('否', '是'), set_value('default', $role->default));?></td>
 		</tr>
 		<tr>
+			<td>角色权限</td>
+			<td><?php echo form_multiselect('role_perms[]', $permissions, $role_permissions);?></td>
+		</tr>
+		<tr>
 			<td><?php echo form_submit('submit', '提交', 'class="btn btn-primary"');;?></td>
 			<td><?php echo anchor('admin/role', '取消', 'class="btn btn-primary"');?></td>
 		</tr>

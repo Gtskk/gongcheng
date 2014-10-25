@@ -18,12 +18,12 @@ class Admin_Controller extends MY_Controller {
         		redirect('admin/user/login');
         	}
 
-            /*// 判断是否有权限访问
+            // 判断是否有权限访问
             $role_exceptions = array('admin', 'admin/migration');
             if(!in_array(uri_string(), $role_exceptions) && !$this->tank_auth->permit(strtolower($this->uri->segment(2)))){
                 // redirect('landing/not-authorized');
                 $this->tank_auth->no_access('not-authorized');
-            }*/
+            }
         }
 
     }

@@ -142,6 +142,27 @@ class Users extends CI_Model
 	}
 
 	/**
+	 * Update user record
+	 *
+	 * @param	array
+	 * @param	bool
+	 * @return	array
+	 */
+	function update_user($data, $id)
+	{
+		$data['modified'] = date('Y-m-d H:i:s');
+		$this->db->set($data);
+		$this->db->where('id', $id);
+		if ($this->db->update($this->table_name, $data)) {
+			// 更新用户信息
+			$this->update_profile($id, $data['meta']);
+			return array('user_id' => $id);
+		}
+		
+		return NULL;
+	}
+
+	/**
 	 * Activate user if activation key is valid.
 	 * Can be called for not activated users only.
 	 *
@@ -407,11 +428,34 @@ class Users extends CI_Model
 		
 		return $this->db->insert($this->profile_table_name, $data);
 	}
+
+	/**
+	 * Update user profile
+	 *
+	 * @param	int
+	 * @return	bool
+	 */
+	private function update_profile($user_id, $meta)
+	{
+		$data['id'] = $user_id;
+		$data['dob'] = date('Y-m-d');
+		if($meta){
+			$meta = unserialize($meta);
+			foreach($meta as $key=>$val){
+				if($val === '1' || $val === '0') $meta[$key] = (int)$val;
+			}
+			$data = array_merge($data, $meta);			
+		}
+		
+		$this->db->set($data);
+		$this->db->where('id', $user_id);
+		return $this->db->update($this->profile_table_name, $data);
+	}
 		
 	/**
 	 * Checks if a role exists
 	 */
-	private function role_exists($role){
+	public function role_exists($role){
 		if(is_int($role)){
 			$query = $this->db->query("SELECT role_id FROM {$this->dbprefix}roles WHERE role_id=? LIMIT 1", array($role));
 		}
@@ -466,6 +510,17 @@ class Users extends CI_Model
 		$q = $this->db->query("SELECT GROUP_CONCAT(DISTINCT permission) permission FROM {$this->dbprefix}user_roles JOIN {$this->dbprefix}roles USING(role_id) JOIN {$this->dbprefix}role_permissions USING(role_id) JOIN {$this->dbprefix}permissions USING(permission_id) WHERE user_id=?", array($user_id));
 		$row = $q->row_array();
 		return explode(',', $row['permission']);
+	}
+	
+	/**
+	 * Gets all the permissions of a user based on his role/s
+	 */
+	public function get_permissions_by_role($role_id){
+		// Does not include overrites yet
+		$q = $this->db->query("SELECT GROUP_CONCAT(DISTINCT permission) permission FROM {$this->dbprefix}role_permissions JOIN {$this->dbprefix}permissions USING(permission_id) WHERE role_id=?", array($role_id));
+		$row = $q->row_array();
+
+		return $row['permission'] ? explode(',', $row['permission']) : array();
 	}
 	
 	/**
@@ -622,7 +677,7 @@ class Users extends CI_Model
 	 * @param multi $role: int `role_id` or string `role` (not full)
 	 * @return bool
 	 */
-	private function has_role($user_id, $role){
+	public function has_role($user_id, $role){
 		// Do nothing if $role is int
 		if(is_string($role)){
 			// Get the role_id of that string
@@ -757,6 +812,15 @@ class Users extends CI_Model
 			$this->db->trans_start();
 			$this->db->query("DELETE FROM {$this->dbprefix}permissions WHERE permission=?", array($permission));
 			$this->db->query("DELETE FROM {$this->dbprefix}role_permissions WHERE permission_id=?", array($permission_id));
+			$this->db->trans_complete();
+			//return 
+			
+			return $this->db->trans_status();
+		}
+		elseif(is_int($permission)){
+			$this->db->trans_start();
+			$this->db->query("DELETE FROM {$this->dbprefix}permissions WHERE permission_id=?", array($permission));
+			$this->db->query("DELETE FROM {$this->dbprefix}role_permissions WHERE permission_id=?", array($permission));
 			$this->db->trans_complete();
 			//return 
 			

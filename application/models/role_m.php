@@ -9,8 +9,8 @@ class Role_M extends MY_Model {
     public $rules = array(
         'role' => array(
             'field' => 'role',
-            'label' => '角色简称',
-            'rules' => 'trim|required|xss_clean|max_length[12]'
+            'label' => '角色名',
+            'rules' => 'trim|required|xss_clean|max_length[12]|callback__unique_role'
         ),
         'full' => array(
             'field' => 'full',

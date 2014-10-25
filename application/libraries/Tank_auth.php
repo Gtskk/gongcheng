@@ -207,6 +207,41 @@ class Tank_auth
 	}
 
 	/**
+	 * Update User
+	 *
+	 * @param	string
+	 * @param	string
+	 * @param	string
+	 * @param	bool
+	 * @return	array
+	 */
+	function update_user($username, $email, $password, $custom, $id)
+	{
+		$data = array(
+			'username'	=> $username,
+			'email'		=> $email,
+			'last_ip'	=> $this->ci->input->ip_address(),
+			'approved'=>(int)$this->ci->config->item('acct_approval', 'tank_auth')
+		);
+		if(!empty($password)){
+			// Hash password using phpass
+			$hasher = new PasswordHash(
+					$this->ci->config->item('phpass_hash_strength', 'tank_auth'),
+					$this->ci->config->item('phpass_hash_portable', 'tank_auth'));
+			$hashed_password = $hasher->HashPassword($password);
+
+			$data['password'] = $hashed_password;
+		}
+		
+		$data['meta'] = $custom ? $custom : '';
+		if (!is_null($res = $this->ci->users->update_user($data, $id))) {
+			return TRUE;
+		}
+
+		return FALSE;
+	}
+
+	/**
 	 * Check if username available for registering.
 	 * Can be called for instant form validation.
 	 *
@@ -501,6 +536,18 @@ class Tank_auth
 	}
 
 	/**
+	 * Delete user (For Admin)
+	 *
+	 * @param	string
+	 * @return	bool
+	 */
+	function delete_user_for_admin($user_id)
+	{
+
+		return $this->ci->users->delete_user($user_id);
+	}
+
+	/**
 	 * Get error message.
 	 * Can be invoked after any failed operation such as login or register.
 	 *
@@ -784,10 +831,22 @@ class Tank_auth
 	public function change_role($user_id, $old, $new){
 		return $this->ci->users->change_role($user_id, $old, $new);
 	}
+	public function role_exists($role){
+		return $this->ci->users->role_exists($role);
+	}
+	public function has_role($user_id, $role){
+		return $this->ci->users->has_role($user_id, $role);
+	}
 	
 	/**
 	 * Permission management methods
 	 */
+	/*public function get_permissions($user_id){
+		return $this->ci->users->get_permissions($user_id);
+	}*/
+	public function get_permissions_by_role($role_id){
+		return $this->ci->users->get_permissions_by_role($role_id);
+	}
 	public function add_permission($permission, $role){
 		return $this->ci->users->add_permission($permission, $role);
 	}

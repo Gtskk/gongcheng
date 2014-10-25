@@ -84,7 +84,6 @@ class User_M extends MY_Model {
         $user->display_name = '';
         $user->email = '';
         $user->phone = '';
-        $user->password = '';
 
         return $user;
 
