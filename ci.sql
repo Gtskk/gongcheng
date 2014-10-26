@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2014 年 10 月 25 日 21:08
+-- 生成日期: 2014 年 10 月 27 日 00:19
 -- 服务器版本: 5.5.24-log
 -- PHP 版本: 5.4.3
 
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `gts_ci_sessions` (
 --
 
 INSERT INTO `gts_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('57ec9e10cf082696e1849b0e28838496', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124 Safari/537.36', 1414241678, 'a:8:{s:9:"user_data";s:0:"";s:11:"verify_code";s:4:"48tq";s:7:"user_id";s:1:"2";s:8:"username";s:4:"rock";s:11:"displayname";N;s:6:"status";s:1:"1";s:5:"roles";a:1:{i:0;a:4:{s:7:"role_id";s:1:"2";s:4:"role";s:4:"user";s:4:"full";s:4:"User";s:7:"default";s:1:"1";}}s:12:"user_profile";a:10:{s:2:"id";s:1:"2";s:4:"name";s:0:"";s:6:"gender";s:0:"";s:12:"display_name";s:6:"英雄";s:5:"phone";s:11:"15212230015";s:3:"dob";s:10:"2014-10-25";s:7:"country";s:0:"";s:8:"timezone";s:0:"";s:7:"website";s:0:"";s:8:"modified";s:19:"2014-10-25 17:50:38";}}');
+('4c974eca7cf17fba6041a416ec85eea0', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124 Safari/537.36', 1414336105, 'a:8:{s:9:"user_data";s:0:"";s:11:"verify_code";s:4:"bs69";s:7:"user_id";s:1:"1";s:8:"username";s:5:"gtskk";s:11:"displayname";N;s:6:"status";s:1:"1";s:5:"roles";a:1:{i:0;a:4:{s:7:"role_id";s:1:"1";s:4:"role";s:5:"admin";s:4:"full";s:13:"Administrator";s:7:"default";s:1:"0";}}s:12:"user_profile";a:10:{s:2:"id";s:1:"1";s:4:"name";s:0:"";s:6:"gender";s:1:"M";s:12:"display_name";s:12:"哥特式KKK";s:5:"phone";s:11:"15856812418";s:3:"dob";s:10:"2014-10-25";s:7:"country";s:0:"";s:8:"timezone";s:0:"";s:7:"website";s:0:"";s:8:"modified";s:19:"2014-10-25 17:50:08";}}');
 
 -- --------------------------------------------------------
 
@@ -456,13 +456,6 @@ CREATE TABLE IF NOT EXISTS `gts_login_attempts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
---
--- 转存表中的数据 `gts_login_attempts`
---
-
-INSERT INTO `gts_login_attempts` (`id`, `ip_address`, `login`, `time`) VALUES
-(1, '127.0.0.1', 'admin', '2014-10-25 12:53:50');
-
 -- --------------------------------------------------------
 
 --
@@ -478,7 +471,7 @@ CREATE TABLE IF NOT EXISTS `gts_migrations` (
 --
 
 INSERT INTO `gts_migrations` (`version`) VALUES
-(16);
+(17);
 
 -- --------------------------------------------------------
 
@@ -593,7 +586,7 @@ CREATE TABLE IF NOT EXISTS `gts_permissions` (
   `sort` tinyint(3) unsigned DEFAULT NULL,
   PRIMARY KEY (`permission_id`),
   UNIQUE KEY `permission_UNIQUE` (`permission`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
 -- 转存表中的数据 `gts_permissions`
@@ -605,7 +598,8 @@ INSERT INTO `gts_permissions` (`permission_id`, `permission`, `description`, `pa
 (5, 'pangzhan', '旁站数据权限', '0', 0),
 (6, 'user', '用户管理权限', '0', 0),
 (7, 'permission', '权限管理权限', '0', 0),
-(8, 'role', '角色管理权限', '0', 0);
+(8, 'role', '角色管理权限', '0', 0),
+(9, 'project', '项目管理权限', '0', 0);
 
 -- --------------------------------------------------------
 
@@ -684,16 +678,18 @@ CREATE TABLE IF NOT EXISTS `gts_projects` (
   `name` varchar(100) NOT NULL,
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
+  `background` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- 转存表中的数据 `gts_projects`
 --
 
-INSERT INTO `gts_projects` (`id`, `name`, `created`, `modified`) VALUES
-(1, '钻孔灌注桩', '2014-10-24 00:00:00', '0000-00-00 00:00:00'),
-(2, '测试项目', '2014-10-24 02:59:40', '2014-10-24 02:59:40');
+INSERT INTO `gts_projects` (`id`, `name`, `created`, `modified`, `background`) VALUES
+(1, '钻孔灌注桩', '2014-10-24 00:00:00', '0000-00-00 00:00:00', ''),
+(2, '测试项目', '2014-10-24 02:59:40', '2014-10-27 00:06:11', 'http://localhost/gongcheng/uploads/7b0b45d5d9fa4b55a5f3d03799566f53.jpg'),
+(4, 'demo', '2014-10-27 00:02:12', '2014-10-27 00:18:55', 'http://localhost/gongcheng/uploads/ce0ef89ee59724b61d61e24eb78234ab.jpg');
 
 -- --------------------------------------------------------
 
@@ -744,6 +740,7 @@ INSERT INTO `gts_role_permissions` (`role_id`, `permission_id`) VALUES
 (1, 6),
 (1, 7),
 (1, 8),
+(1, 9),
 (2, 3),
 (2, 4),
 (2, 5),
@@ -776,14 +773,14 @@ CREATE TABLE IF NOT EXISTS `gts_users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `gts_users`
 --
 
 INSERT INTO `gts_users` (`id`, `username`, `password`, `email`, `activated`, `banned`, `ban_reason`, `new_password_key`, `new_password_requested`, `new_email`, `new_email_key`, `approved`, `meta`, `last_ip`, `last_login`, `created`, `modified`) VALUES
-(1, 'gtskk', '$2a$08$45FEeOvGfuBrWGcxoqOUUe2gCV1mX6VsA2SvXPLaLl.M5tQ6WM91a', 'tttt6399998@126.com', 1, 0, NULL, NULL, NULL, NULL, NULL, 1, 'a:2:{s:12:"display_name";s:12:"哥特式KKK";s:5:"phone";s:11:"15856812418";}', '127.0.0.1', '2014-10-25 20:54:12', '2014-10-21 11:28:39', '2014-10-25 12:54:12'),
+(1, 'gtskk', '$2a$08$45FEeOvGfuBrWGcxoqOUUe2gCV1mX6VsA2SvXPLaLl.M5tQ6WM91a', 'tttt6399998@126.com', 1, 0, NULL, NULL, NULL, NULL, NULL, 1, 'a:2:{s:12:"display_name";s:12:"哥特式KKK";s:5:"phone";s:11:"15856812418";}', '127.0.0.1', '2014-10-26 23:18:23', '2014-10-21 11:28:39', '2014-10-26 15:18:23'),
 (2, 'rock', '$2a$08$vLaY0qSlxRs4UhqxJulaJeGh/KoAul7IA3m97.sbIAn4ny/o9f03G', '107104029@qq.com', 1, 0, NULL, NULL, NULL, NULL, NULL, 1, 'a:2:{s:12:"display_name";s:6:"英雄";s:5:"phone";s:11:"15212230015";}', '127.0.0.1', '2014-10-25 20:54:47', '2014-10-25 16:07:42', '2014-10-25 12:54:47');
 
 -- --------------------------------------------------------

@@ -9,7 +9,7 @@ class project_m extends MY_Model {
     protected $_order_by = 'created desc, id desc';
     protected $_timestamp = TRUE;
     public $rules = array(
-    	'name' => array(
+        'name' => array(
             'field' => 'name',
             'label' => '项目名称',
             'rules' => 'trim|required|xss_clean'
@@ -19,6 +19,7 @@ class project_m extends MY_Model {
     public function get_new(){
         $project = new stdClass();
         $project->name = '';
+        $project->background = '';
 
         return $project;
     }

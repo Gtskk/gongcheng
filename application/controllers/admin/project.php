@@ -8,6 +8,13 @@ class Project extends Admin_Controller {
         $this->load->model('project_m');
     }
 
+    public function index(){
+        $this->data['projects'] = $this->project_m->get();
+
+        $this->data['subview'] = 'admin/project/index';
+        $this->load->view('admin/_layout_main', $this->data);
+    }
+
     public function edit($id = NULL){
         if($id){
             $this->data['project'] = $this->project_m->get($id);
@@ -24,10 +31,27 @@ class Project extends Admin_Controller {
                 array(
                     'name',
                     ));
+            // 配置文件上传
+            $config['upload_path'] = './uploads/';
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['encrypt_name'] = 'TRUE';
+            // $config['max_size'] = '100';
+            $this->load->library('upload', $config);
+            if(!$this->upload->do_upload('background')){
+                $error = $this->upload->display_errors();
+                if(!$this->data['project']->background || $error != '<p>You did not select a file to upload.</p>'){
+                    $this->session->set_flashdata('saveError', $error);
+                    $data = $id == NULL ? 'admin/project/edit' : 'admin/project/edit/'.$id;
+                    redirect($data, 'refresh');
+                }
+            }else{
+                $filedata = $this->upload->data();
+                $data['background'] = base_url('uploads/'.$filedata['file_name']);
+            }
 
             //We can store data info
             if($this->project_m->save($data, $id)){
-                redirect('admin/dashboard');
+                redirect('admin/project');
             }else{
                 $this->session->set_flashdata('saveError', '保存失败！');
                 $data = $id == NULL ? 'admin/project/edit' : 'admin/project/edit/'.$id;

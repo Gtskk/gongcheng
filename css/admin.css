@@ -76,7 +76,7 @@ body a:hover{color: #ddd;text-decoration: none;}
 	margin-bottom: 0;
 	text-indent: 30px;
 }
-#email{
+#login{
 	background: url(../images/login_user.jpg) no-repeat 15px;
 	border-bottom: #b5b7c4 solid 1px;
 	border-top-left-radius: 10px;
