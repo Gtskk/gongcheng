@@ -95,12 +95,10 @@ class User extends Admin_Controller {
             }
 
             $this->data['use_recaptcha'] = $this->config->item('use_recaptcha', 'tank_auth');
-            if ($this->tank_auth->is_max_login_attempts_exceeded($login)) {
-                if ($this->data['use_recaptcha'])
-                    $this->form_validation->set_rules('capt', '验证码', 'trim|xss_clean|required|callback__check_recaptcha');
-                else
-                    $this->form_validation->set_rules('captcha', '验证码', 'trim|xss_clean|required|callback__check_captcha');
-            }
+            if ($this->data['use_recaptcha'])
+                $this->form_validation->set_rules('captcha', '验证码', 'trim|xss_clean|required|callback__check_recaptcha');
+            else
+                $this->form_validation->set_rules('capt', '验证码', 'trim|xss_clean|required|callback__check_captcha');
             $this->data['errors'] = array();
 
             if ($this->form_validation->run()) {                                // validation ok
