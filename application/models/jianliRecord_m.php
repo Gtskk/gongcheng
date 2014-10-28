@@ -28,7 +28,7 @@ class jianlirecord_m extends MY_Model {
 
     public function get_new(){
         $data = new stdClass();
-        $data->time = date('Y-m-d');
+        $data->time = date('Y-m-d H:i:s');
         $data->daoguanlikongdishendu = 0;
         $data->baguanqiandaoguanmaishen = 0;
         $data->baguanmeijiechangdu = 0;

@@ -69,8 +69,8 @@ class data_m extends MY_Model {
         $data->predict_ruyan = 0.0;
         $data->shiji_ruyan = 0.0;
         $data->quanjin_length = 0.0;
-        $data->kaizhuan_time = date('Y-m-d');
-        $data->chengzhuang_time = date('Y-m-d');
+        $data->kaizhuan_time = date('Y-m-d H:i:s');
+        $data->chengzhuang_time = date('Y-m-d H:i:s');
         $data->hutong_heightRef = 0.0;
         $data->jitai_heightRef = 0.0;
         $data->zhuzhuangan = 0.0;

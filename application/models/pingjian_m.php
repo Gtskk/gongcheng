@@ -74,7 +74,7 @@ class pingjian_m extends MY_Model {
         $data->kaikong_jitaibiaogao = '';
         $data->kaikong_zhuantouchangdu = '';
         $data->kaikong_jianli = '';
-        $data->kaikong_kaizhuanshijian = date('Y-m-d');
+        $data->kaikong_kaizhuanshijian = date('Y-m-d H:i:s');
         $data->chengkong_zhuganchang = 0;
         $data->chengkong_zhuanjuzongchang = 0;
         $data->chengkong_jiyuci = 0;
