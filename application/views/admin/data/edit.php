@@ -6,7 +6,7 @@
 	<table class="table">
 		<tr>
 			<td>机号<span class="required">*</span></td>
-			<td><?php echo (!empty($data->mac_id) ? form_input('mac_id', set_value('mac_id', $data->mac_id), 'disabled') : form_input('mac_id', set_value('mac_id', $data->mac_id)));?></td>
+			<td><?php echo (!empty($data->mac_id) ? form_input('mac_id', set_value('mac_id', $data->mac_id), 'readonly') : form_input('mac_id', set_value('mac_id', $data->mac_id)));?></td>
 		</tr>
 		<tr>
 			<td>X轴坐标<span class="required">*</span></td>
@@ -58,7 +58,7 @@
 				      	<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
 				    </span>
 					<?php else:?>
-					<?php echo form_input('kaizhuan_time', set_value('kaizhuan_time', $data->kaizhuan_time), 'disabled');?>
+					<?php echo form_input('kaizhuan_time', set_value('kaizhuan_time', $data->kaizhuan_time), 'readonly');?>
 					<?php endif;?>
 				</div>
 			</td>
@@ -73,30 +73,30 @@
 				      	<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
 				    </span>
 					<?php else:?>
-					<?php echo form_input('chengzhuang_time', set_value('chengzhuang_time', $data->chengzhuang_time), 'disabled');?>
+					<?php echo form_input('chengzhuang_time', set_value('chengzhuang_time', $data->chengzhuang_time), 'readonly');?>
 					<?php endif;?>
 				</div>
 			</td>
 		</tr>
 		<tr>
 			<td>护筒标高</td>
-			<td><?php echo (empty($data->hutong_heightRef) ? form_input('hutong_heightRef', set_value('hutong_heightRef', $data->hutong_heightRef)) : form_input('hutong_heightRef', set_value('hutong_heightRef', $data->hutong_heightRef), 'disabled'));?></td>
+			<td><?php echo (empty($data->hutong_heightRef) ? form_input('hutong_heightRef', set_value('hutong_heightRef', $data->hutong_heightRef)) : form_input('hutong_heightRef', set_value('hutong_heightRef', $data->hutong_heightRef), 'readonly'));?></td>
 		</tr>
 		<tr>
 			<td>机台标高</td>
-			<td><?php echo (empty($data->jitai_heightRef) ? form_input('jitai_heightRef', set_value('jitai_heightRef', $data->jitai_heightRef)) : form_input('jitai_heightRef', set_value('jitai_heightRef', $data->jitai_heightRef), 'disabled'));?></td>
+			<td><?php echo (empty($data->jitai_heightRef) ? form_input('jitai_heightRef', set_value('jitai_heightRef', $data->jitai_heightRef)) : form_input('jitai_heightRef', set_value('jitai_heightRef', $data->jitai_heightRef), 'readonly'));?></td>
 		</tr>
 		<tr>
 			<td>主钻杆</td>
-			<td><?php echo (empty($data->zhuzhuangan) ? form_input('zhuzhuangan', set_value('zhuzhuangan', $data->zhuzhuangan)) : form_input('zhuzhuangan', set_value('zhuzhuangan', $data->zhuzhuangan), 'disabled'));?></td>
+			<td><?php echo (empty($data->zhuzhuangan) ? form_input('zhuzhuangan', set_value('zhuzhuangan', $data->zhuzhuangan)) : form_input('zhuzhuangan', set_value('zhuzhuangan', $data->zhuzhuangan), 'readonly'));?></td>
 		</tr>
 		<tr>
 			<td>辅钻杆</td>
-			<td><?php echo (empty($data->fuzhuangan) ? form_input('fuzhuangan', set_value('fuzhuangan', $data->fuzhuangan)) : form_input('fuzhuangan', set_value('fuzhuangan', $data->fuzhuangan), 'disabled'));?></td>
+			<td><?php echo (empty($data->fuzhuangan) ? form_input('fuzhuangan', set_value('fuzhuangan', $data->fuzhuangan)) : form_input('fuzhuangan', set_value('fuzhuangan', $data->fuzhuangan), 'readonly'));?></td>
 		</tr>
 		<tr>
 			<td>钻头</td>
-			<td><?php echo (empty($data->zhuantou) ? form_input('zhuantou', set_value('zhuantou', $data->zhuantou)) : form_input('zhuantou', set_value('zhuantou', $data->zhuantou), 'disabled'));?></td>
+			<td><?php echo (empty($data->zhuantou) ? form_input('zhuantou', set_value('zhuantou', $data->zhuantou)) : form_input('zhuantou', set_value('zhuantou', $data->zhuantou), 'readonly'));?></td>
 		</tr>
 		<tr>
 			<td>主筋规格</td>
