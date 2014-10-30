@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2014 年 10 月 30 日 23:57
+-- 生成日期: 2014 年 10 月 31 日 00:54
 -- 服务器版本: 5.5.24-log
 -- PHP 版本: 5.4.3
 
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `gts_ci_sessions` (
 --
 
 INSERT INTO `gts_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('42982e00b180d4dcfe822abfc1257ab4', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124 Safari/537.36', 1414682840, 'a:8:{s:9:"user_data";s:0:"";s:11:"verify_code";s:4:"jrm7";s:7:"user_id";s:1:"1";s:8:"username";s:5:"gtskk";s:11:"displayname";N;s:6:"status";s:1:"1";s:5:"roles";a:1:{i:0;a:4:{s:7:"role_id";s:1:"1";s:4:"role";s:5:"admin";s:4:"full";s:13:"Administrator";s:7:"default";s:1:"0";}}s:12:"user_profile";a:10:{s:2:"id";s:1:"1";s:4:"name";s:0:"";s:6:"gender";s:1:"M";s:12:"display_name";s:12:"哥特式KKK";s:5:"phone";s:11:"15856812418";s:3:"dob";s:10:"2014-10-25";s:7:"country";s:0:"";s:8:"timezone";s:0:"";s:7:"website";s:0:"";s:8:"modified";s:19:"2014-10-25 17:50:08";}}');
+('42982e00b180d4dcfe822abfc1257ab4', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.124 Safari/537.36', 1414682840, 'a:9:{s:9:"user_data";s:0:"";s:11:"verify_code";s:4:"jrm7";s:7:"user_id";s:1:"1";s:8:"username";s:5:"gtskk";s:11:"displayname";N;s:6:"status";s:1:"1";s:5:"roles";a:1:{i:0;a:4:{s:7:"role_id";s:1:"1";s:4:"role";s:5:"admin";s:4:"full";s:13:"Administrator";s:7:"default";s:1:"0";}}s:12:"user_profile";a:10:{s:2:"id";s:1:"1";s:4:"name";s:0:"";s:6:"gender";s:1:"M";s:12:"display_name";s:12:"哥特式KKK";s:5:"phone";s:11:"15856812418";s:3:"dob";s:10:"2014-10-25";s:7:"country";s:0:"";s:8:"timezone";s:0:"";s:7:"website";s:0:"";s:8:"modified";s:19:"2014-10-25 17:50:08";}s:9:"productId";s:1:"2";}');
 
 -- --------------------------------------------------------
 
@@ -398,7 +398,7 @@ CREATE TABLE IF NOT EXISTS `gts_datas` (
   `proId` int(11) unsigned NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_proId` (`proId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- 转存表中的数据 `gts_datas`
@@ -410,7 +410,8 @@ INSERT INTO `gts_datas` (`id`, `mac_id`, `type`, `radius`, `top_ref`, `length`, 
 (4, 15, 'ZZH4', '0.0', '0.0', '0.00', '0.0', '0.0', '0.00', '0.0', '2014-09-25 00:00:00', '2014-09-25 00:00:00', '0.00', '0.00', '0.0', '0.0', '0.00', '0', '0.00', 'dfd', '0', 0, 'dasdf', '0.00', '0.00', '0.00', '0.0', '0.0', '0.00', '0.000', '0.00', '0.000', '', '0.0', '0.000', '<p>哎呦歪，我来了啊</p>', '415.0', '454.0', 1),
 (5, 1, 'ZZH1', '1.0', '-14.8', '27.63', '6.0', '-26.5', '-26.68', '27.6', '2014-09-25 00:00:00', '2014-09-29 00:00:00', '0.00', '0.00', '0.0', '0.0', '0.00', '14Ⅱ18', '0.18', '', 'Φ8＠100', 5, 'Φ8＠200', '0.72', '42.43', '-42.00', '14.1', '0.0', '0.00', '0.000', '0.00', '0.000', '', '0.0', '0.000', '', '121.0', '210.0', 1),
 (6, 2, 'ZZH2', '1.2', '-14.8', '28.65', '7.2', '-26.5', '-26.50', '19.1', '2014-09-25 00:00:00', '2014-09-28 00:00:00', '0.00', '0.00', '0.0', '0.0', '0.00', '18Ⅱ20', '0.20', '', 'Φ8＠100', 6, 'Φ8＠200', '0.80', '43.45', '-43.00', '14.0', '0.0', '0.00', '0.000', '0.00', '0.000', '', '0.0', '0.000', '', '140.0', '160.0', 1),
-(7, 5, 'ZZH5', '1.0', '-14.8', '23.45', '2.0', '-26.5', '-26.50', '15.6', '2014-10-10 23:12:17', '2014-10-18 23:12:17', '0.00', '0.00', '0.0', '0.0', '0.00', '16Ⅱ18', '0.18', 'Ⅱ14＠2000', 'Φ8＠100', 5, 'Φ8＠200', '0.72', '38.25', '-38.00', '14.1', '0.0', '0.00', '0.000', '0.00', '0.000', '', '0.0', '0.000', '', '111.0', '123.0', 1);
+(7, 5, 'ZZH5', '1.0', '-14.8', '23.45', '2.0', '-26.5', '-26.50', '15.6', '2014-10-10 23:12:17', '2014-10-18 23:12:17', '0.00', '0.00', '0.0', '0.0', '0.00', '16Ⅱ18', '0.18', 'Ⅱ14＠2000', 'Φ8＠100', 5, 'Φ8＠200', '0.72', '38.25', '-38.00', '14.1', '0.0', '0.00', '0.000', '0.00', '0.000', '', '0.0', '0.000', '', '111.0', '123.0', 1),
+(8, 55, 'ZZH4', '0.0', '0.0', '0.00', '0.0', '0.0', '0.00', '0.0', '2014-10-31 00:51:55', '2014-10-30 00:51:55', '0.00', '0.00', '0.0', '0.0', '0.00', '0', '0.00', '', '0', 0, '', '0.00', '0.00', '0.00', '0.0', '0.0', '0.00', '0.000', '0.00', '0.000', '', '0.0', '0.000', '<p>asdfas</p>', '34.0', '23.0', 2);
 
 -- --------------------------------------------------------
 
@@ -562,15 +563,17 @@ CREATE TABLE IF NOT EXISTS `gts_pangzhans` (
   `pangzhanjianli` varchar(50) NOT NULL DEFAULT '',
   `zhijianyuanqianziriqi` date NOT NULL,
   `jianliqianziriqi` date NOT NULL,
-  PRIMARY KEY (`id`)
+  `proId` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pzfk_proId` (`proId`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- 转存表中的数据 `gts_pangzhans`
 --
 
-INSERT INTO `gts_pangzhans` (`id`, `num`, `project_name`, `riqi`, `qihou`, `work_address`, `pangzhanbuwei`, `zhuangjing`, `pangzhanjianlikaishishijian`, `pangzhanjianlijieshushijian`, `sg_zjArrive`, `sg_shanggangzheng`, `sg_machineArrive`, `sg_materialCheck`, `sg_hunningtuDoc`, `sg_tiaojianReq`, `jl_shuangshejiqiangdu`, `jl_kongdibiaogao`, `jl_kongkoubiaogao`, `jl_shejishuanmianbiaogao`, `jl_daoguanchangdu`, `jl_lilunshuanshouguan`, `jl_lilunshuanliang`, `jl_shuanshikuai`, `jl_shuanmianbiaogao`, `jl_chongyingxishu`, `que_weifanqiangzhixing`, `que_yingxiangzhiliang`, `chuliyijiang`, `extra`, `shigongqiye`, `jianliqiye`, `xiangmujinglibu`, `xiangmujianlijigou`, `zhijianyuan`, `pangzhanjianli`, `zhijianyuanqianziriqi`, `jianliqianziriqi`) VALUES
-(15, 123, '你好世界', '2014-09-28', '说说', '啊啊', '大大', '0.0', '2014-09-28', '2014-09-28', '0', '0', '0', '0', '0', '0', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0', '0.00', '0.00', '0', '0', '<p>adsfasd</p>', '<p>adsfasd</p>', 'adsfasd', 'sdafsd', '', '', '', '', '2014-09-28', '2014-09-28');
+INSERT INTO `gts_pangzhans` (`id`, `num`, `project_name`, `riqi`, `qihou`, `work_address`, `pangzhanbuwei`, `zhuangjing`, `pangzhanjianlikaishishijian`, `pangzhanjianlijieshushijian`, `sg_zjArrive`, `sg_shanggangzheng`, `sg_machineArrive`, `sg_materialCheck`, `sg_hunningtuDoc`, `sg_tiaojianReq`, `jl_shuangshejiqiangdu`, `jl_kongdibiaogao`, `jl_kongkoubiaogao`, `jl_shejishuanmianbiaogao`, `jl_daoguanchangdu`, `jl_lilunshuanshouguan`, `jl_lilunshuanliang`, `jl_shuanshikuai`, `jl_shuanmianbiaogao`, `jl_chongyingxishu`, `que_weifanqiangzhixing`, `que_yingxiangzhiliang`, `chuliyijiang`, `extra`, `shigongqiye`, `jianliqiye`, `xiangmujinglibu`, `xiangmujianlijigou`, `zhijianyuan`, `pangzhanjianli`, `zhijianyuanqianziriqi`, `jianliqianziriqi`, `proId`) VALUES
+(15, 123, '你好世界', '2014-09-28', '说说', '啊啊', '大大', '0.0', '2014-09-28', '2014-09-28', '0', '0', '0', '0', '0', '0', '', '0.00', '0.00', '0.00', '0.00', '0.00', '0.00', '0', '0.00', '0.00', '0', '0', '<p>adsfasd</p>', '<p>adsfasd</p>', 'adsfasd', 'sdafsd', '', '', '', '', '2014-09-28', '2014-09-28', 1);
 
 -- --------------------------------------------------------
 
@@ -657,16 +660,18 @@ CREATE TABLE IF NOT EXISTS `gts_pingjians` (
   `shuanguanzhu_guanzhushijian` datetime NOT NULL,
   `shuanguanzhu_jianli` varchar(50) NOT NULL,
   `extra` text NOT NULL,
-  PRIMARY KEY (`id`)
+  `proId` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `pjfk_proId` (`proId`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- 转存表中的数据 `gts_pingjians`
 --
 
-INSERT INTO `gts_pingjians` (`id`, `mac_id`, `type`, `radius`, `shikuai`, `kaikong_zhuangdingbiaogao`, `kaikong_zhuangdibiaogao`, `kaikong_hutongbiaogao`, `kaikong_jitaibiaogao`, `kaikong_zhuantouchangdu`, `kaikong_shuipingduizhong`, `kaikong_kaizhuanshijian`, `kaikong_jianli`, `chengkong_zhuganchang`, `chengkong_zhuanjuzongchang`, `chengkong_jiyuci`, `chengkong_zongkongshendu`, `chengkong_yujiruyanbiaogao`, `chengkong_yiciqingkongnijiangbizhong`, `chengkong_shijiruyanbiaogao`, `chengkong_jianli`, `gjgza_zhujinguige`, `gjgza_jiaqiangjinguige`, `gjgza_jiamiluoxuanjin`, `gjgza_jiamichangdu`, `gjgza_feimiluoxuanjin`, `gjgza_zhihutongdiaojin`, `gjgza_quanjinlongjieshu`, `gjgza_banquanjinlongchangdu`, `gjgza_dajiehoulongchangdu`, `gjgza_dilongchang`, `gjgza_leijizonglongshu`, `gjgza_jianli`, `gjgza_jianliqianzi`, `ecqk_nijiangbizhong`, `ecqk_chenzha`, `ecqk_qingkonghoukongshen`, `ecqk_jianli`, `shuanguanzhu_daoguanjukongdijuli`, `shuanguanzhu_shuanqiangdu`, `shuanguanzhu_tanluodu`, `shuanguanzhu_shuanshijiliang`, `shuanguanzhu_shuanlilunliang`, `shuanguanzhu_chongyingxishu`, `shuanguanzhu_shuanmianduihutongjuli`, `shuanguanzhu_shuanmianduijitaijuli`, `shuanguanzhu_guanzhushijian`, `shuanguanzhu_jianli`, `extra`) VALUES
-(1, 2, 'ddd', '3.0', 'sdafsd', '222.00', '1.00', '1.00', '1.00', '1.00', '0', '2014-09-10 00:00:00', 'dddd', '0.00', '0.00', '0.00', '0.00', '0.00', '0.0', '0.00', '', '', '', '', 0, '', '0.00', 0, '0.000000', '0.00', '0.00', 0, '', '0', '0.00', 0, '0.00', '', 0, '', 0, '0.00', '0.00', '0.00', '0.00', '0.00', '2014-09-26 00:00:00', '', 'asdfs'),
-(3, 12, 'adsfas', '23.0', 'sadf', '23.00', '3.00', '111.00', '23.00', '11.00', '0', '2014-10-30 23:48:54', 'rock', '0.00', '0.00', '0.00', '0.00', '0.00', '0.0', '0.00', '0', '0', '0', '0', 0, '0', '0.00', 0, '0.000000', '0.00', '0.00', 0, '0', '0', '0.00', 0, '0.00', '0', 0, '0', 0, '0.00', '0.00', '0.00', '0.00', '0.00', '0000-00-00 00:00:00', '0', '');
+INSERT INTO `gts_pingjians` (`id`, `mac_id`, `type`, `radius`, `shikuai`, `kaikong_zhuangdingbiaogao`, `kaikong_zhuangdibiaogao`, `kaikong_hutongbiaogao`, `kaikong_jitaibiaogao`, `kaikong_zhuantouchangdu`, `kaikong_shuipingduizhong`, `kaikong_kaizhuanshijian`, `kaikong_jianli`, `chengkong_zhuganchang`, `chengkong_zhuanjuzongchang`, `chengkong_jiyuci`, `chengkong_zongkongshendu`, `chengkong_yujiruyanbiaogao`, `chengkong_yiciqingkongnijiangbizhong`, `chengkong_shijiruyanbiaogao`, `chengkong_jianli`, `gjgza_zhujinguige`, `gjgza_jiaqiangjinguige`, `gjgza_jiamiluoxuanjin`, `gjgza_jiamichangdu`, `gjgza_feimiluoxuanjin`, `gjgza_zhihutongdiaojin`, `gjgza_quanjinlongjieshu`, `gjgza_banquanjinlongchangdu`, `gjgza_dajiehoulongchangdu`, `gjgza_dilongchang`, `gjgza_leijizonglongshu`, `gjgza_jianli`, `gjgza_jianliqianzi`, `ecqk_nijiangbizhong`, `ecqk_chenzha`, `ecqk_qingkonghoukongshen`, `ecqk_jianli`, `shuanguanzhu_daoguanjukongdijuli`, `shuanguanzhu_shuanqiangdu`, `shuanguanzhu_tanluodu`, `shuanguanzhu_shuanshijiliang`, `shuanguanzhu_shuanlilunliang`, `shuanguanzhu_chongyingxishu`, `shuanguanzhu_shuanmianduihutongjuli`, `shuanguanzhu_shuanmianduijitaijuli`, `shuanguanzhu_guanzhushijian`, `shuanguanzhu_jianli`, `extra`, `proId`) VALUES
+(1, 2, 'ddd', '3.0', 'sdafsd', '222.00', '1.00', '1.00', '1.00', '1.00', '0', '2014-09-10 00:00:00', 'dddd', '0.00', '0.00', '0.00', '0.00', '0.00', '0.0', '0.00', '', '', '', '', 0, '', '0.00', 0, '0.000000', '0.00', '0.00', 0, '', '0', '0.00', 0, '0.00', '', 0, '', 0, '0.00', '0.00', '0.00', '0.00', '0.00', '2014-09-26 00:00:00', '', 'asdfs', 1),
+(3, 12, 'adsfas', '23.0', 'sadf', '23.00', '3.00', '111.00', '23.00', '11.00', '0', '2014-10-30 23:48:54', 'rock', '0.00', '0.00', '0.00', '0.00', '0.00', '0.0', '0.00', '0', '0', '0', '0', 0, '0', '0.00', 0, '0.000000', '0.00', '0.00', 0, '0', '0', '0.00', 0, '0.00', '0', 0, '0', 0, '0.00', '0.00', '0.00', '0.00', '0.00', '0000-00-00 00:00:00', '0', '', 1);
 
 -- --------------------------------------------------------
 
@@ -680,17 +685,18 @@ CREATE TABLE IF NOT EXISTS `gts_projects` (
   `created` datetime NOT NULL,
   `modified` datetime NOT NULL,
   `background` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
+  `author` int(11) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `fk_author` (`author`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- 转存表中的数据 `gts_projects`
 --
 
-INSERT INTO `gts_projects` (`id`, `name`, `created`, `modified`, `background`) VALUES
-(1, '钻孔灌注桩', '2014-10-24 00:00:00', '0000-00-00 00:00:00', ''),
-(2, '测试项目', '2014-10-24 02:59:40', '2014-10-27 00:06:11', 'http://localhost/gongcheng/uploads/7b0b45d5d9fa4b55a5f3d03799566f53.jpg'),
-(4, 'demo', '2014-10-27 00:02:12', '2014-10-27 00:18:55', 'http://localhost/gongcheng/uploads/ce0ef89ee59724b61d61e24eb78234ab.jpg');
+INSERT INTO `gts_projects` (`id`, `name`, `created`, `modified`, `background`, `author`) VALUES
+(1, '钻孔灌注桩', '2014-10-24 00:00:00', '2014-10-31 00:36:18', 'http://localhost/gongcheng/uploads/09d5da56fc5c8707cfcb02961b9bb112.jpg', 1),
+(2, '测试项目', '2014-10-24 02:59:40', '2014-10-27 00:06:11', 'http://localhost/gongcheng/uploads/7b0b45d5d9fa4b55a5f3d03799566f53.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -867,6 +873,24 @@ ALTER TABLE `gts_datas`
 ALTER TABLE `gts_overrides`
   ADD CONSTRAINT `permission_id1` FOREIGN KEY (`permission_id`) REFERENCES `gts_permissions` (`permission_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   ADD CONSTRAINT `user_id1` FOREIGN KEY (`user_id`) REFERENCES `gts_users` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- 限制表 `gts_pangzhans`
+--
+ALTER TABLE `gts_pangzhans`
+  ADD CONSTRAINT `pzfk_proId` FOREIGN KEY (`proId`) REFERENCES `gts_projects` (`id`);
+
+--
+-- 限制表 `gts_pingjians`
+--
+ALTER TABLE `gts_pingjians`
+  ADD CONSTRAINT `pjfk_proId` FOREIGN KEY (`proId`) REFERENCES `gts_projects` (`id`);
+
+--
+-- 限制表 `gts_projects`
+--
+ALTER TABLE `gts_projects`
+  ADD CONSTRAINT `fk_author` FOREIGN KEY (`author`) REFERENCES `gts_users` (`id`);
 
 --
 -- 限制表 `gts_role_permissions`
