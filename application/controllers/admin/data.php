@@ -11,6 +11,7 @@ class Data extends Admin_Controller {
     public function index($proId = NULL){
         $this->data['datas'] = $this->data_m->get();
         if($proId != NULL){
+            $this->session->set_userdata('productId', $proId);// 设置产品ID
             $this->data['datas'] = $this->data_m->get(array('proId'=>$proId));
         }
 
@@ -71,6 +72,8 @@ class Data extends Admin_Controller {
                     'x_axis',
                     'y_axis',
                     ));
+
+            $data['proId'] = $this->session->userdata('productId');
 
             //We can store data info
             if($this->data_m->save($data, $id)){

@@ -31,6 +31,8 @@ class Project extends Admin_Controller {
                 array(
                     'name',
                     ));
+            $data['author'] = $this->tank_auth->get_user_id();
+
             // 配置文件上传
             $config['upload_path'] = './uploads/';
             $config['allowed_types'] = 'gif|jpg|png';
@@ -65,7 +67,7 @@ class Project extends Admin_Controller {
 
     public function delete($id){
         if($this->input->is_ajax_request()){
-            if($this->project_m->delete($id)){
+            if($this->project_m->delete_project($id)){
                 $status = 'ok';
             }else{
                 $status = 'error';

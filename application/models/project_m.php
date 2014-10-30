@@ -24,4 +24,18 @@ class project_m extends MY_Model {
         return $project;
     }
 
+    /**
+     * 删除项目
+     */
+    public function delete_project($id){
+        $this->db->trans_start();
+        $this->db->query("DELETE FROM gts_projects WHERE id=?", array($id));
+        $this->db->query("DELETE FROM gts_datas WHERE proId=?", array($id));/*
+        $this->db->query("DELETE FROM gts_pingjians WHERE proId=?", array($id));
+        $this->db->query("DELETE FROM gts_pangzhans WHERE proId=?", array($id));*/
+        $this->db->trans_complete();
+        
+        return $this->db->trans_status() ? TRUE : FALSE;
+    }
+
 }

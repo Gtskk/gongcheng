@@ -14,7 +14,7 @@
 		</tr>
 		<tr>
 			<td><?php echo form_submit('submit', '保存', 'class="btn btn-primary btn-large"');?></td>
-			<td><?php echo anchor('admin/dashboard', '取消', 'class="btn btn-primary btn-large"');?></td>
+			<td><?php echo anchor('admin/project', '取消', 'class="btn btn-primary btn-large"');?></td>
 		</tr>
 	</table>
 	<?php echo form_close();?>

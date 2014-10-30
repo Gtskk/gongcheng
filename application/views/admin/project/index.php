@@ -1,31 +1,35 @@
 <div class="content">
-    <!-- <div class="action">
-        <?php echo anchor('admin/data/edit', '新建数据', 'class="btn button pull-left"');?>
-        <a href="#" onclick="printdiv('tableContent')" class="btn button2 pull-right">打印数据</a>
-    </div> -->
-    <div class="row-fluid">
-    	<ul class="thumbnails">
-    		<?php if(count($projects)):foreach($projects as $project):?>
-          	<li class="span4">
-            	<div class="thumbnail">
-          			<img src="<?php echo $project->background;?>" style="width: 300px; height: 200px;">
-	              	<div class="caption">
-	                	<h3 style="text-align:center;">
-	                		<a href="<?php echo base_url('admin/data/index/'.$project->id);?>">
-	                			<?php echo $project->name;?>
-	                		</a>
-	                	</h3>
-	              	</div>
-	            </div>
-        	</li>
-	        <?php endforeach;endif;?>
-	        <li class="span4">
-        		<a href="<?php echo base_url('admin/project/edit');?>">
-          			<img src="<?php echo base_url('images/plus.png');?>" alt="新建">
-          		</a>
-        	</li>
-        </ul>
+    <div class="action">
+        <?php echo anchor('admin/project/edit', '新建项目', 'class="btn button pull-left"');?>
     </div>
+    <table class="table table-striped" id="tableContent">
+        <tr>
+            <th>项目名称</th>
+            <th>项目图片</th>
+            <th>创建者</th>
+            <th>操作</th>
+        </tr>
+        <?php if(count($projects)):foreach($projects as $project):?>
+		<tr>
+			<td><?php echo $project->name;?></td>
+			<td><img src="<?php echo $project->background;?>" alt="背景图" style="width:100px;height:40px;"></td>
+			<td><?php echo $this->tank_auth->get_username_by_id($project->author);?></td>
+			<td class="caozuo">
+				<div class="btn-group">
+					<a href="" role="button" class="btn button2 dropdown-toggle" data-toggle="dropdown">操作<span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						<li><?php echo btn_edit('admin/project/edit/'.$project->id);?></li>
+						<li><?php echo btn_delete('admin/project/delete/'.$project->id);?></li>
+					</ul>
+				</div>
+			</td>
+		</tr>
+		<?php endforeach;else:?>
+		<tr>
+			<td>暂无数据。</td>
+		</tr>
+		<?php endif;?>
+    </table>
 </div>
 
 <script type="text/javascript">

@@ -26,10 +26,12 @@ class Migration_Create_projects extends CI_Migration {
 
 		$this->dbforge->add_key('id', TRUE);
 		$this->dbforge->create_table('projects');
+		$this->db->query('ALTER TABLE gts_projects ADD CONSTRAINT fk_author FOREIGN KEY (author) REFERENCES gts_users(id)');
 	}
 
 	public function down()
 	{
+		$this->db->query('ALTER TABLE gts_projects DROP FOREIGN KEY fk_author');
 		$this->dbforge->drop_table('projects');
 	}
 }
