@@ -18,7 +18,7 @@
 			<td><?php echo $data->mac_id;?></td>
 			<td><?php echo $data->type;?></td>
 			<td><?php echo $data->radius;?></td>
-			<td><?php echo $data->extra;?></td>
+			<td><?php echo $data->shikuai;?></td>
 			<td class="caozuo">
 				<div class="btn-group">
 					<a href="" role="button" class="btn button2 dropdown-toggle" data-toggle="dropdown">操作<span class="caret"></span></a>

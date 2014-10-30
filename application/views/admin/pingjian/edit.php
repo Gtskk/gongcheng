@@ -6,7 +6,7 @@
 	<table class="table">
 		<tr>
 			<td colspan="2">机号<span class="required">*</span></td>
-			<td><?php echo form_input('mac_id', set_value('mac_id', $data->mac_id));?></td>
+			<td><?php echo (!empty($data->mac_id) ? form_input('mac_id', set_value('mac_id', $data->mac_id), 'readonly') : form_input('mac_id', set_value('mac_id', $data->mac_id)));?></td>
 			<td>桩型<span class="required">*</span></td>
 			<td><?php echo form_input('type', set_value('type', $data->type));?></td>
 		</tr>
@@ -45,15 +45,20 @@
 			<td>开钻时间</td>
 			<td>
 				<div class="datepicker input-append">
+					<?php if(empty($data->kaikong_kaizhuanshijian) || $data->kaikong_kaizhuanshijian == '0000-00-00 00:00:00'):?>
 					<?php echo form_input('kaikong_kaizhuanshijian', set_value('kaikong_kaizhuanshijian', $data->kaikong_kaizhuanshijian), 'data-format="yyyy/MM/dd hh:mm:ss"');?>
 					<span class="add-on">
 				      	<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
 				    </span>
+					<?php else:?>
+					<?php echo form_input('kaikong_kaizhuanshijian', set_value('kaikong_kaizhuanshijian', $data->kaikong_kaizhuanshijian), 'readonly');?>
+					<?php endif;?>
 				</div>
 			</td>
 			<td>监理</td>
 			<td><?php echo form_input('kaikong_jianli', set_value('kaikong_jianli', $data->kaikong_jianli));?></td>
 		</tr>
+		<?php if($data->kaikong_jianli):?>
 		<tr>
 			<td rowspan="4">成孔</td>
 			<td>主杆长</td>
@@ -79,6 +84,7 @@
 			<td>监理</td>
 			<td><?php echo form_input('chengkong_jianli', set_value('chengkong_jianli', $data->chengkong_jianli));?></td>
 		</tr>
+		<?php if($data->chengkong_jianli):?>
 		<tr>
 			<td rowspan="7">钢筋笼制安</td>
 			<td>主筋规格</td>
@@ -120,6 +126,7 @@
 			<td>监理签字</td>
 			<td colspan="3"><?php echo form_dropdown('gjgza_jianliqianzi', array('1焊','2焊','3焊','4焊','5焊'), 0);?></td>
 		</tr>
+		<?php if($data->gjgza_jianli):?>
 		<tr>
 			<td rowspan="3">二次清孔</td>
 			<td>泥浆比重</td>
@@ -139,6 +146,7 @@
 			<td>监理</td>
 			<td><?php echo form_input('ecqk_jianli', set_value('ecqk_jianli', $data->ecqk_jianli));?></td>
 		</tr>
+		<?php if($data->ecqk_jianli):?>
 		<tr>
 			<td rowspan="5">砼灌注</td>
 			<td>导管距孔底距离</td>
@@ -177,6 +185,10 @@
 			<td>监理</td>
 			<td><?php echo form_input('shuanguanzhu_jianli', set_value('shuanguanzhu_jianli', $data->shuanguanzhu_jianli));?></td>
 		</tr>
+		<?php endif;?>
+		<?php endif;?>
+		<?php endif;?>
+		<?php endif;?>
 		<tr>
 			<td colspan="5">
 				<?php echo form_submit('submit', '保存', 'class="btn btn-large btn-primary pull-left"');?>
