@@ -205,6 +205,12 @@
 	                "width":"186px",
 	                "word-break":"break-all"
 	            });
+
+	            $(document).click(function(e){
+	            	var target = $(e.target);
+	            	if(target.closest('#preview_container, area').length == 0)
+						preview.hide();
+				});
 	            return this.each(function() {
 	                var _this = $(this);
 	                _this.click(
@@ -245,7 +251,7 @@
 	    	桩径：<?php echo $val->radius;?><br />\
 	    	桩顶标高：<?php echo $val->top_ref;?><br />\
 	    	桩长：<?php echo $val->length;?><br />\
-	    	全筋桩长：<?php if($val->quanjin_length>10):?><span class='red'><?php endif;?><?php echo $val->quanjin_length;?><?php if($val->quanjin_length>10):?></span><?php endif;?><br />\
+	    	全筋桩长：<?php if($val->quanjin_length>10):?><span class='yellow'><?php endif;?><?php echo $val->quanjin_length;?><?php if($val->quanjin_length>10):?></span><?php endif;?><br />\
 	    	入岩深度：<?php echo $val->ruyan_depth;?><br />\
 	    	预测入岩：<?php echo $val->predict_ruyan;?><br />\
 	    	实际入岩：<?php echo $val->shiji_ruyan;?><br />\
