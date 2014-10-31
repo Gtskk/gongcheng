@@ -240,7 +240,7 @@
 
 	                _this.dblclick(function() {
 	                	var areaid = jQuery(this).attr('id');
-	                	window.open("<?php echo base_url('admin/data/edit');?>"+areaid.substring(6), '_blank');
+	                	window.open("<?php echo base_url('admin/data/edit');?>"+'/'+areaid.substring(6), '_blank');
 	                })
 	            });
 	        }
