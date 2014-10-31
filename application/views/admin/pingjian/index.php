@@ -9,7 +9,7 @@
             <th>机号</th>
             <th>桩型</th>
             <th>桩径</th>
-            <th>试块</th>
+            <th>状态</th>
             <th>操作</th>
         </tr>
         <?php if(count($datas)):foreach($datas as $data):?>
@@ -18,7 +18,34 @@
 			<td><?php echo $data->mac_id;?></td>
 			<td><?php echo $data->type;?></td>
 			<td><?php echo $data->radius;?></td>
-			<td><?php echo $data->shikuai;?></td>
+			<td>
+				<?php
+					$img = '';
+					$txt = '';
+					if($data->kaikong_jianli){
+						$img = 'kk.png';
+						$txt = '开孔';
+					}
+					if($data->chengkong_jianli){
+						$img = 'ck.png';
+						$txt = '成孔';
+					}
+					if($data->gjgza_jianli){
+						$img = 'gjlza.png';
+						$txt = '钢筋笼制安';
+					}
+					if($data->ecqk_jianli){
+						$img = 'ecqk.png';
+						$txt = '二次清孔';
+					}
+				?>
+				<?php if($img != '' && $txt != ''):?>
+				<img style="width: 15px;heigth: 16px;" src="<?php echo base_url('images/'.$img);?>" alt="<?php echo $txt;?>" title="<?php echo $txt;?>">
+				<?php echo $txt;?>
+				<?php else:?>
+				无
+				<?php endif;?>
+			</td>
 			<td class="caozuo">
 				<div class="btn-group">
 					<a href="" role="button" class="btn button2 dropdown-toggle" data-toggle="dropdown">操作<span class="caret"></span></a>
