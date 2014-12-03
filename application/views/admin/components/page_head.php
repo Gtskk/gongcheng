@@ -14,6 +14,7 @@
 	    <script src="<?php echo base_url('js/admin.js');?>"></script>
 	    <script src="<?php echo base_url('js/bootstrap-datetimepicker.min.js');?>"></script>
 	    <script src="<?php echo base_url('js/bootstrap-datetimepicker.zh-CN.js');?>"></script>
+	    <script src="<?php echo base_url('js/bootstrap-datepicker.js');?>"></script>
 	   	<?php if(isset($sortable) && $sortable):?>
 	    <script src="<?php echo base_url('js/jquery-ui-1.9.1.custom.min.js');?>"></script>
         <script src="<?php echo base_url('js/jquery.mjs.nestedSortable.js');?>"></script>
